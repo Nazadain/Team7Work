@@ -1,9 +1,6 @@
 import os
 from flask import Flask, request, jsonify, render_template, send_from_directory
-from routes import *
-from flask_sqlalchemy import SQLAlchemy
-
-db = SQLAlchemy()
+from models import db
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
