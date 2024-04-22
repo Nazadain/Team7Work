@@ -4,14 +4,26 @@ html, body {
     padding: 0;
     margin: 0;
 }
+.signin {
+    position: fixed;
+    width: 40%;
+    height: 500px;
+    background-color: black;
+    left: 30%;
+    top: 20%;
+}
 .basketMenu {
     width: 20%;
     height: 400px;
     background-color: black;
     position: fixed;
-    bottom: 0;
+    bottom: -400px;
     right: 0;
-    display: none;
+    transition: 0.25s;
+}
+.show {
+    bottom: 0;
+    transition: 0.25s;
 }
 #basket {
     position: fixed;
