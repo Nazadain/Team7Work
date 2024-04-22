@@ -4,10 +4,20 @@ html, body {
     padding: 0;
     margin: 0;
 }
+.basketMenu {
+    width: 20%;
+    height: 400px;
+    background-color: black;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    display: none;
+}
 #basket {
     position: fixed;
-    bottom: 5%;
-    right: 5%;
+    bottom: 1%;
+    right: 1%;
+    cursor: pointer;
 }
 #basket img {
     width: 50px;
@@ -44,42 +54,6 @@ ul img {
     border-radius: 10%;
     padding: 1%;
     background-color: #EA5C2B;
-}
-#hamburger {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    z-index: 10;
-}
-#hamburger div {
-    width: 22px;
-    height: 2px;
-    background-color: black;
-    margin: 4px 0;
-    transition: 0.5s;
-}
-#hamburger {
-    display: none;
-}
-.nav-active {
-    transform: translateX(0);
-}
-#hamburger.toggle div {
-    background-color: rgb(255, 255, 255);
-}
-.toggle #bar1 {
-    transform: rotate(-45deg) translate(-5px, 4px);
-}
-.toggle #bar2 {
-    opacity: 0;
-}
-.toggle #bar3 {
-    transform: rotate(45deg) translate(-5px, -4px);
 }
 .container {
     width: 65%;
