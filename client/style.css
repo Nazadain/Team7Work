@@ -4,30 +4,43 @@ html, body {
     padding: 0;
     margin: 0;
 }
+#blackFade {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 50%;
+    z-index: 4;
+}
 #basketButton {
     position: fixed;
     bottom: 2%;
     right: 2%;
     cursor: pointer;
+    z-index: 5;
 }
 #basketButton img {
     width: 50px;
 }
 .basketMenu {
-    width: 20%;
-    height: 400px;
-    background-color: black;
+    width: 450px;
+    height: 100%;
+    background-color: white;
     position: fixed;
-    bottom: -400px;
+    top: 0;
+    right: -450px;
+    transition: 0.25s;
+    z-index: 5;
+}
+.show {
     right: 0;
     transition: 0.25s;
 }
-.show {
-    bottom: 0;
-    transition: 0.25s;
-}
 .navMenu {
-    background-color: #FF7F3F;
+    background-color: #EA5C2B;
     position: fixed;
     top: 0;
     margin: 0;
@@ -53,42 +66,6 @@ ul img {
 .navMenu .link:hover {
     color: #F6D860;
     transition: 0.25s;
-}
-#hamburger {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    z-index: 10;
-}
-#hamburger div {
-    width: 22px;
-    height: 2px;
-    background-color: black;
-    margin: 4px 0;
-    transition: 0.5s;
-}
-#hamburger {
-    display: none;
-}
-.nav-active {
-    transform: translateX(0);
-}
-#hamburger.toggle div {
-    background-color: rgb(255, 255, 255);
-}
-.toggle #bar1 {
-    transform: rotate(-45deg) translate(-5px, 4px);
-}
-.toggle #bar2 {
-    opacity: 0;
-}
-.toggle #bar3 {
-    transform: rotate(45deg) translate(-5px, -4px);
 }
 .container {
     width: 65%;
@@ -168,7 +145,7 @@ ul img {
     border-radius: 20px;
     background-color: #EA5C2B;
     color: white;
-    padding: 5% 15%;
+    padding: 5% 10%;
     text-decoration: none;
 }
 .pizza a:hover, .sushi a:hover, .dessert a:hover {
@@ -177,6 +154,20 @@ ul img {
 }
 .price {
     font-size: 19px;
+}
+button {
+    display: none;
+    border: 2px solid red;
+    border-radius: 100%;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+.foot {
+    width: 100%;
+    height: 200px;
+    margin-top: 5%;
+    background-color: #FF7F3F;
 }
 @media screen and (max-width: 1280px) {
     .righthome {
@@ -190,6 +181,12 @@ ul img {
 
 }
 @media screen and (max-width: 768px) {
+    .basketMenu {
+        width: 80%;
+    }
+    .navMenu {
+        display: none;
+    }
     h2 {
         font-size: 32px;
     }
@@ -210,30 +207,6 @@ ul img {
         width: 100%;
         border-width: 5px;
         border-radius: 0;
-    }
-    #hamburger {
-      display: block;
-    }
-    .navMenu {
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: 100%;
-        height: 100%;
-        background-color: black;
-        transform: translateX(100%);
-        transition: 0.5s;
-    }
-    .navMenu ul {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin: 15px 0;
-    }
-    .navMenu li {
-        color: white;
-        padding: 15px 0;
     }
     .pizza, .sushi, .dessert {
         justify-content: center;
