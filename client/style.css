@@ -54,11 +54,6 @@ ul img {
     color: #F6D860;
     transition: 0.25s;
 }
-#sign {
-    border-radius: 10%;
-    padding: 1%;
-    background-color: #EA5C2B;
-}
 #hamburger {
     display: flex;
     flex-direction: column;
@@ -118,16 +113,16 @@ ul img {
 }
 .lefthome a{
     padding: 5% 15%;
-    border: 2px solid #FF7F3F;
+    border: 2px solid #EA5C2B;
     border-radius: 20px;
-    background-color: #FF7F3F;
+    background-color: #EA5C2B;
     text-decoration: none;
     color: white;
     font-size: 1em;
 }
 .lefthome a:hover {
-    background-color: #EA5C2B;
-    border-color: #EA5C2B;
+    background-color: #FF7F3F;
+    border-color: #FF7F3F;
     transition: 0.25s;
 }
 .righthome {
@@ -149,24 +144,26 @@ ul img {
     text-align: center;
     color: #FF7F3F;
 }
-.pizza div {
+.pizza div, .sushi div {
     width: 250px;
     text-align: center;
-    border: 2px solid #FF7F3F;
     margin-bottom: 2%;
 }
-.pizza div footer {
+.pizza div footer, .sushi div footer {
     display: flex;
-    padding: 5%;
+    padding: 5% 0;
     justify-content: space-between;
     flex-direction: row-reverse;
     align-items: center;
 }
-
-.pizza div img {
+.description {
+    color: grey;
+    text-align: left;
+}
+.pizza div img, .sushi div img {
     width: 250px;
 }
-.pizza a {
+.pizza a, .sushi a {
     border: 1px solid;
     border-radius: 20px;
     background-color: #EA5C2B;
@@ -174,37 +171,12 @@ ul img {
     padding: 5% 15%;
     text-decoration: none;
 }
-.pizza a:hover {
+.pizza a:hover, .sushi a:hover {
     background-color: #FF7F3F;
     transition: 0.25s;
 }
-.sushi div {
-    width: 250px;
-    text-align: center;
-    border: 2px solid #FF7F3F;
-    margin-bottom: 2%;
-}
-.sushi div img {
-    width: 250px;
-}
-.sushi a {
-    border: 1px solid;
-    border-radius: 20px;
-    background-color: #EA5C2B;
-    color: white;
-    padding: 5% 15%;
-    text-decoration: none;
-}
-.sushi a:hover {
-    background-color: #FF7F3F;
-    transition: 0.25s;
-}
-.sushi div footer {
-    display: flex;
-    padding: 5%;
-    justify-content: space-between;
-    flex-direction: row-reverse;
-    align-items: center;
+.price {
+    font-size: 19px;
 }
 @media screen and (max-width: 1280px) {
     .righthome {
@@ -218,6 +190,9 @@ ul img {
 
 }
 @media screen and (max-width: 768px) {
+    h2 {
+        font-size: 32px;
+    }
     .home {
         flex-direction: column;
         justify-content: center;
@@ -260,20 +235,12 @@ ul img {
         color: white;
         padding: 15px 0;
     }
-    .pizza {
+    .pizza, .sushi {
         justify-content: center;
     }
-    .pizza div {
+    .pizza div, .sushi div {
         width: 300px;
         height: 400px;
-        margin-bottom: 10%;
-    }
-    .sushi {
-        justify-content: center;
-    }
-    .sushi div {
-        width: 300px;
-        height: 400px;
-        margin-bottom: 10%;
+        margin-bottom: 15%;
     }
 }
