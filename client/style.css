@@ -22,6 +22,10 @@ html, body {
     right: 0;
     transition: 0.25s;
 }
+.show {
+    bottom: 0;
+    transition: 0.25s;
+}
 .navMenu {
     background-color: #FF7F3F;
     position: fixed;
