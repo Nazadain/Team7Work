@@ -1,17 +1,11 @@
-var hamburger = document.querySelector("#hamburger");
-var nav = document.querySelector(".navMenu");
-var navLinks = document.querySelectorAll(".navMenu li");
-hamburger.addEventListener("click", () => {
-    nav.classList.toggle("nav-active");
-    hamburger.classList.toggle("toggle");
-  });
-Array.from(navLinks).forEach((li) =>
-li.addEventListener("click", () => {
-if (hamburger.classList.contains("toggle")) {
-    hamburger.classList.remove("toggle");
+let flag = 0;
+function OpenCloseBasket() {
+    if (flag == 0) {
+        document.getElementById("basketToggle").classList.add("show");
+        flag = 1;
+    }
+    else {
+        document.getElementById("basketToggle").classList.remove("show");
+        flag = 0;
+    }
 }
-if (nav.classList.contains("nav-active")) {
-    nav.classList.remove("nav-active");
-}
-    })
-);

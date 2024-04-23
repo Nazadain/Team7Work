@@ -6,8 +6,9 @@ html, body {
 }
 #basket {
     position: fixed;
-    bottom: 5%;
-    right: 5%;
+    bottom: 2%;
+    right: 2%;
+    cursor: pointer;
 }
 #basket img {
     width: 50px;
