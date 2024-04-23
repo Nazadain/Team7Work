@@ -13,6 +13,15 @@ html, body {
 #basket img {
     width: 50px;
 }
+.basketMenu {
+    width: 20%;
+    height: 400px;
+    background-color: black;
+    position: fixed;
+    bottom: -400px;
+    right: 0;
+    transition: 0.25s;
+}
 .navMenu {
     background-color: #FF7F3F;
     position: fixed;
