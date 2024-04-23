@@ -16,7 +16,7 @@ document.addEventListener( 'click', (e) => {
     }
 })
 document.addEventListener('keydown', function(e) {
-	if( e.keyCode == 27 && basket.classList.contains("show")){ // код клавиши Escape, но можно использовать e.key
+	if( e.keyCode == 27 && basket.classList.contains("show")){
 		basket.classList.remove("show");
 	}
 });

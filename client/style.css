@@ -133,23 +133,23 @@ ul img {
     background-image: url(images/food.jpg);
     background-size: cover;
 }
-.pizza, .sushi{
+.pizza, .sushi, .dessert{
     width: 100%;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
 }
-.h2pizza, .h2sushi {
+.h2pizza, .h2sushi, .h2dessert {
     text-align: center;
     color: #FF7F3F;
 }
-.pizza div, .sushi div {
+.pizza div, .sushi div, .dessert div {
     width: 250px;
     text-align: center;
     margin-bottom: 2%;
 }
-.pizza div footer, .sushi div footer {
+.pizza div footer, .sushi div footer, .dessert div footer {
     display: flex;
     padding: 5% 0;
     justify-content: space-between;
@@ -160,10 +160,10 @@ ul img {
     color: grey;
     text-align: left;
 }
-.pizza div img, .sushi div img {
+.pizza div img, .sushi div img, .dessert div img {
     width: 250px;
 }
-.pizza a, .sushi a {
+.pizza a, .sushi a, .dessert a {
     border: 1px solid;
     border-radius: 20px;
     background-color: #EA5C2B;
@@ -171,7 +171,7 @@ ul img {
     padding: 5% 15%;
     text-decoration: none;
 }
-.pizza a:hover, .sushi a:hover {
+.pizza a:hover, .sushi a:hover, .dessert a:hover {
     background-color: #FF7F3F;
     transition: 0.25s;
 }
@@ -235,10 +235,10 @@ ul img {
         color: white;
         padding: 15px 0;
     }
-    .pizza, .sushi {
+    .pizza, .sushi, .dessert {
         justify-content: center;
     }
-    .pizza div, .sushi div {
+    .pizza div, .sushi div, .dessert div {
         width: 300px;
         height: 400px;
         margin-bottom: 15%;
