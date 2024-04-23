@@ -119,6 +119,7 @@ ul img {
 .lefthome a{
     padding: 5% 15%;
     border: 2px solid #FF7F3F;
+    border-radius: 20px;
     background-color: #FF7F3F;
     text-decoration: none;
     color: white;
@@ -150,10 +151,16 @@ ul img {
 }
 .pizza div {
     width: 250px;
-    height: 400px;
     text-align: center;
     border: 2px solid #FF7F3F;
     margin-bottom: 2%;
+}
+.pizza div footer {
+    display: flex;
+    padding: 5%;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+    align-items: center;
 }
 
 .pizza div img {
@@ -161,6 +168,7 @@ ul img {
 }
 .pizza a {
     border: 1px solid;
+    border-radius: 20px;
     background-color: #EA5C2B;
     color: white;
     padding: 5% 15%;
@@ -172,7 +180,6 @@ ul img {
 }
 .sushi div {
     width: 250px;
-    height: 400px;
     text-align: center;
     border: 2px solid #FF7F3F;
     margin-bottom: 2%;
@@ -182,6 +189,7 @@ ul img {
 }
 .sushi a {
     border: 1px solid;
+    border-radius: 20px;
     background-color: #EA5C2B;
     color: white;
     padding: 5% 15%;
@@ -190,6 +198,13 @@ ul img {
 .sushi a:hover {
     background-color: #FF7F3F;
     transition: 0.25s;
+}
+.sushi div footer {
+    display: flex;
+    padding: 5%;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+    align-items: center;
 }
 @media screen and (max-width: 1280px) {
     .righthome {
