@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Super Food</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div class="basketMenu" id="basketToggle"></div>
+        <a id="basket" onclick="OpenCloseBasket()"><img src="images/basket.png"></a>
+        <nav>
+            <div id="hamburger">
+                <div id="bar1"></div>
+                <div id="bar2"></div>
+                <div id="bar3"></div>
+              </div>
+            <div class="navMenu">
+                <ul>
+                  <a href="#"><img src="images/home.png"></a>
+                  <a href="#yakpizza" class="link">pizza</a>
+                  <a href="#sushi" class="link">sushi</a>
+                  <a href="#dessert" class="link">dessert</a>
+                  <a href="#" class="link" id="sign">sign in</a>
+                </ul>
+            </div>
+        </nav>
+        <div class="container">
+            <div class="home">
+                <div class="lefthome">
+                    <h1>Super food</h1>
+                    <p>tasty sushi-pizza restaurant</p>
+                    <a href="#yakpizza">start shopping</a>
+                </div>
+            <div class="righthome"></div>
+            </div>
+            <hr id="yakpizza">
+            <h2 class="h2pizza">Pizza</h2>
+            <div class="pizza">
+                <div id="salami">
+                    <img src="images/salami.jpg">
+                    <h3>Salami</h3>
+                    <a href="#">buy</a>
+                    <p>13$</p>
+                </div>
+                <div id="oliva">
+                    <img src="images/oliva.png">
+                    <h3>Oliva</h3>
+                    <a href="#">buy</a>
+                    <p>16$</p>
+                </div>
+                <div id="pesto">
+                    <img src="images/pesto.jpg">
+                    <h3>Pesto</h3>
+                    <a href="#">buy</a>
+                    <p>15$</p>
+                </div>
+            </div>
+            <hr id="yaksushi">
+            <h2 class="h2sushi">Sushi</h2>
+            <div class="sushi">
+                <div>
+                    <img src="images/california.jpg">
+                    <h3>California</h3>
+                    <a href="#">buy</a>
+                    <p>13$</p>
+                </div>
+                <div>
+                    <img src="images/filadelfia.jpg">
+                    <h3>Filadelfia</h3>
+                    <a href="#">buy</a>
+                    <p>16$</p>
+                </div>
+                <div>
+                    <img src="images/maki.jpg">
+                    <h3>Maki</h3>
+                    <a href="#">buy</a>
+                    <p>15$</p>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="script.js"></script>
+</html>

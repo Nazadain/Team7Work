@@ -123,15 +123,14 @@ ul img {
     background-image: url(images/food.jpg);
     background-size: cover;
 }
-.pizza {
-    height: 1500px;
+.pizza, .sushi{
     width: 100%;
     display: flex;
     flex-direction: row;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     justify-content: space-between;
 }
-.pitsa {
+.h2pizza, .h2sushi {
     text-align: center;
     color: #FF7F3F;
 }
@@ -140,7 +139,9 @@ ul img {
     height: 400px;
     text-align: center;
     border: 2px solid #FF7F3F;
+    margin-bottom: 2%;
 }
+
 .pizza div img {
     width: 250px;
 }
@@ -155,6 +156,27 @@ ul img {
     background-color: #FF7F3F;
     transition: 0.25s;
 }
+.sushi div {
+    width: 250px;
+    height: 400px;
+    text-align: center;
+    border: 2px solid #FF7F3F;
+    margin-bottom: 2%;
+}
+.sushi div img {
+    width: 250px;
+}
+.sushi a {
+    border: 1px solid;
+    background-color: #EA5C2B;
+    color: white;
+    padding: 5% 15%;
+    text-decoration: none;
+}
+.sushi a:hover {
+    background-color: #FF7F3F;
+    transition: 0.25s;
+}
 @media screen and (max-width: 1280px) {
     .righthome {
         width: 240px;
@@ -164,21 +186,26 @@ ul img {
         width: 75%;
         margin-top: 10%;
     }
-    .pizzez div {
-        width: 150px;
-        height: 150px;
-    }
 
 }
 @media screen and (max-width: 768px) {
-    .container {
-        margin-top: 5%;
+    .home {
+        flex-direction: column;
+        justify-content: center;
     }
-    .righthome {
-        display: none;
+    .lefthome {
+        margin-bottom: 10%;
+    }
+    .lefthome h1 {
+        margin-top: 0;
     }
     .lefthome p {
         margin-bottom: 12%;
+    }
+    .righthome {
+        width: 100%;
+        border-width: 5px;
+        border-radius: 0;
     }
     #hamburger {
       display: block;
@@ -204,8 +231,20 @@ ul img {
         color: white;
         padding: 15px 0;
     }
-    .pizzez div {
-        width: 400px;
+    .pizza {
+        justify-content: center;
+    }
+    .pizza div {
+        width: 300px;
         height: 400px;
+        margin-bottom: 10%;
+    }
+    .sushi {
+        justify-content: center;
+    }
+    .sushi div {
+        width: 300px;
+        height: 400px;
+        margin-bottom: 10%;
     }
 }
