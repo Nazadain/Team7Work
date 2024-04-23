@@ -15,17 +15,17 @@ html, body {
     opacity: 50%;
     z-index: 4;
 }
-#basketButton {
+#cartButton {
     position: fixed;
     bottom: 2%;
     right: 2%;
     cursor: pointer;
     z-index: 5;
 }
-#basketButton img {
+#cartButton img {
     width: 50px;
 }
-.basketMenu {
+.cartMenu {
     width: 450px;
     height: 100%;
     background-color: white;
@@ -140,28 +140,23 @@ ul img {
 .pizza div img, .sushi div img, .dessert div img {
     width: 250px;
 }
-.pizza a, .sushi a, .dessert a {
+.pizza button, .sushi button, .dessert button {
     border: 1px solid;
     border-radius: 20px;
     background-color: #EA5C2B;
     color: white;
     padding: 5% 10%;
     text-decoration: none;
+    cursor: pointer;
+    font-family: "Exo 2", sans-serif;
+    font-size: 16px;
 }
-.pizza a:hover, .sushi a:hover, .dessert a:hover {
+.pizza button:hover, .sushi button:hover, .dessert button:hover {
     background-color: #FF7F3F;
     transition: 0.25s;
 }
 .price {
     font-size: 19px;
-}
-button {
-    display: none;
-    border: 2px solid red;
-    border-radius: 100%;
-    width: 30px;
-    height: 30px;
-    cursor: pointer;
 }
 .foot {
     width: 100%;
