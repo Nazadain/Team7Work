@@ -1,11 +1,3 @@
-<<<<<<< Updated upstream:client/script.js
-let flag = 0;
-function OpenCloseBasket() {
-    if (flag == 0) {
-        document.getElementById("basketToggle").classList.add("show");
-        flag = 1;
-=======
-"use strict"
 let cartMonitor = document.querySelector( '#cartToggle');
 let cartButton = document.querySelector( '#cartButton');
 let blackFade = document.querySelector('#blackFade');
@@ -54,10 +46,52 @@ let cart = {
         "name" : "Моти",
         "price" : 189,
         "count" : 0,
->>>>>>> Stashed changes:client/js/user.js
     }
-    else {
-        document.getElementById("basketToggle").classList.remove("show");
-        flag = 0;
+}
+let sum = 0;
+document.addEventListener( 'click', (e) => {
+	let insideMenu = e.composedPath().includes(cartMonitor);
+    let insideButton = e.composedPath().includes(cartButton);
+	if(insideButton) {
+        if(!cartMonitor.classList.contains("show")) {
+            cartMonitor.classList.add("show");
+            blackFade.style.display = 'block';
+        }
+        else {
+            cartMonitor.classList.remove("show");
+            blackFade.style.display = 'none';
+        }
     }
+    else if(! insideMenu && cartMonitor.classList.contains("show")) {
+        cartMonitor.classList.remove("show");
+        blackFade.style.display = 'none';
+    }
+    else if(e.target.classList.contains('plus')) {
+        plusFunction(e.target.dataset.id);
+    }
+    else if(e.target.classList.contains('minus')) {
+        minusFunction(e.target.dataset.id);
+    }
+})
+document.addEventListener('keydown', function(e) {
+	if( e.keyCode == 27 && cartMonitor.classList.contains("show")){
+		cartMonitor.classList.remove("show");
+        blackFade.style.display = 'none';
+	}
+});
+
+function plusFunction(id) {
+    cart[id]["count"]++;
+    sum += cart[id]["price"];
+    console.log(sum);
+    renderCart();
+}
+
+function minusFunction(id) {
+    cart[id]["count"]--;
+    renderCart();
+}
+
+function renderCart() {
+    console.log(cart);
 }

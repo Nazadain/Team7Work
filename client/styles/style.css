@@ -4,38 +4,43 @@ html, body {
     padding: 0;
     margin: 0;
 }
-.signin {
+#blackFade {
+    display: none;
     position: fixed;
-    width: 40%;
-    height: 500px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background-color: black;
-    left: 30%;
-    top: 20%;
+    opacity: 50%;
+    z-index: 4;
 }
-.basketMenu {
-    width: 20%;
-    height: 400px;
-    background-color: black;
+#cartButton {
     position: fixed;
-    bottom: -400px;
+    bottom: 2%;
+    right: 2%;
+    cursor: pointer;
+    z-index: 5;
+}
+#cartButton img {
+    width: 50px;
+}
+.cartMenu {
+    width: 450px;
+    height: 100%;
+    background-color: white;
+    position: fixed;
+    top: 0;
+    right: -450px;
+    transition: 0.25s;
+    z-index: 5;
+}
+.show {
     right: 0;
     transition: 0.25s;
 }
-.show {
-    bottom: 0;
-    transition: 0.25s;
-}
-#basket {
-    position: fixed;
-    bottom: 1%;
-    right: 1%;
-    cursor: pointer;
-}
-#basket img {
-    width: 50px;
-}
 .navMenu {
-    background-color: #FF7F3F;
+    background-color: #EA5C2B;
     position: fixed;
     top: 0;
     margin: 0;
@@ -62,11 +67,6 @@ ul img {
     color: #F6D860;
     transition: 0.25s;
 }
-#sign {
-    border-radius: 10%;
-    padding: 1%;
-    background-color: #EA5C2B;
-}
 .container {
     width: 65%;
     margin: 0 auto;
@@ -90,15 +90,16 @@ ul img {
 }
 .lefthome a{
     padding: 5% 15%;
-    border: 2px solid #FF7F3F;
-    background-color: #FF7F3F;
+    border: 2px solid #EA5C2B;
+    border-radius: 20px;
+    background-color: #EA5C2B;
     text-decoration: none;
     color: white;
     font-size: 1em;
 }
 .lefthome a:hover {
-    background-color: #EA5C2B;
-    border-color: #EA5C2B;
+    background-color: #FF7F3F;
+    border-color: #FF7F3F;
     transition: 0.25s;
 }
 .righthome {
@@ -109,37 +110,59 @@ ul img {
     background-image: url(../images/food.jpg);
     background-size: cover;
 }
-.pizza {
-    height: 1500px;
+.pizza, .sushi, .dessert{
     width: 100%;
     display: flex;
     flex-direction: row;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     justify-content: space-between;
 }
-.pitsa {
+.h2pizza, .h2sushi, .h2dessert {
     text-align: center;
     color: #FF7F3F;
 }
-.pizza div {
+.pizza div, .sushi div, .dessert div {
     width: 250px;
-    height: 400px;
     text-align: center;
-    border: 2px solid #FF7F3F;
+    margin-bottom: 2%;
 }
-.pizza div img {
+.pizza div footer, .sushi div footer, .dessert div footer {
+    display: flex;
+    padding: 5% 0;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+    align-items: center;
+}
+.description {
+    color: grey;
+    text-align: left;
+}
+.pizza div img, .sushi div img, .dessert div img {
     width: 250px;
 }
-.pizza a {
+.pizza button, .sushi button, .dessert button {
     border: 1px solid;
+    border-radius: 20px;
     background-color: #EA5C2B;
     color: white;
-    padding: 5% 15%;
+    padding: 5% 10%;
     text-decoration: none;
+    cursor: pointer;
+    font-family: "Exo 2", sans-serif;
+    font-size: 16px;
 }
-.pizza a:hover {
+.pizza button:hover, .sushi button:hover, .dessert button:hover {
     background-color: #FF7F3F;
     transition: 0.25s;
+}
+.price {
+    font-size: 19px;
+}
+.foot {
+    width: 100%;
+    height: 200px;
+    margin-top: 5%;
+    background-color: #FF7F3F;
 }
 @media screen and (max-width: 1280px) {
     .righthome {
@@ -150,48 +173,42 @@ ul img {
         width: 75%;
         margin-top: 10%;
     }
-    .pizzez div {
-        width: 150px;
-        height: 150px;
-    }
 
 }
 @media screen and (max-width: 768px) {
-    .container {
-        margin-top: 5%;
+    .basketMenu {
+        width: 80%;
     }
-    .righthome {
+    .navMenu {
         display: none;
+    }
+    h2 {
+        font-size: 32px;
+    }
+    .home {
+        flex-direction: column;
+        justify-content: center;
+    }
+    .lefthome {
+        margin-bottom: 10%;
+    }
+    .lefthome h1 {
+        margin-top: 0;
     }
     .lefthome p {
         margin-bottom: 12%;
     }
-    #hamburger {
-      display: block;
-    }
-    .navMenu {
-        position: absolute;
-        top: 0;
-        right: 0;
+    .righthome {
         width: 100%;
-        height: 100%;
-        background-color: black;
-        transform: translateX(100%);
-        transition: 0.5s;
+        border-width: 5px;
+        border-radius: 0;
     }
-    .navMenu ul {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin: 15px 0;
+    .pizza, .sushi, .dessert {
+        justify-content: center;
     }
-    .navMenu li {
-        color: white;
-        padding: 15px 0;
-    }
-    .pizzez div {
-        width: 400px;
+    .pizza div, .sushi div, .dessert div {
+        width: 300px;
         height: 400px;
+        margin-bottom: 15%;
     }
 }
