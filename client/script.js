@@ -1,6 +1,6 @@
-let cartMonitor = document.querySelector( '#cartToggle');
-let cartButton = document.querySelector( '#cartButton');
-let blackFade = document.querySelector('#blackFade');
+const cartMonitor = document.querySelector( '#cartToggle');
+const cartButton = document.querySelector( '#cartButton');
+const blackFade = document.querySelector('#blackFade');
 let cart = {
     'pizz001' : {
         "name" : "Салями",
@@ -49,6 +49,7 @@ let cart = {
     }
 }
 let sum = 0;
+
 document.addEventListener( 'click', (e) => {
 	let insideMenu = e.composedPath().includes(cartMonitor);
     let insideButton = e.composedPath().includes(cartButton);
