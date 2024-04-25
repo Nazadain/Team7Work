@@ -75,7 +75,7 @@ async function getProducts(flag) {
         else if(flag == 1) {
             loadProductBasket(productsData);
         }else {
-            
+            document.querySelector(".cards").innerHTML = "";
             renderStartPage(productsData);
             loadProductBasket(productsData);
         }
@@ -205,7 +205,7 @@ function delProductBasket(event) {
     const basket = getBasketLocalStorage();
     const newBasket = basket.filter(item => item !== id);
     setBasketLocalStorage(newBasket);
-    getProducts(1);
+    getProducts(2);
 }
 
 function renderProductsBasket(arr) {
