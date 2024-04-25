@@ -1,4 +1,4 @@
-**# SUPER FOOD. Система доставки еды**
+# SUPER FOOD. Система доставки еды
 
 
 # Мы
@@ -24,6 +24,6 @@
   Мы использовали следующие языки программирования:
   ##  **[`JavaScript`](https://ru.wikipedia.org/wiki/JavaScript)** **[`CSS`](https://ru.wikipedia.org/wiki/CSS)** **[`HTML`](https://ru.wikipedia.org/wiki/HTML)** **[`PYTHON`](https://ru.wikipedia.org/wiki/Python)**
 
-# Администрац
+**Руководители проекта**
 
 
