@@ -71,14 +71,14 @@ def get_dishes():
     dishes = db.Dish.query.all()
     output = []
     for dish in dishes:
-        dish_data = {'id': dish.id, 'name': dish.name, 'price': dish.price}
+        dish_data = {'id': dish.id, 'name': dish.name, 'price': dish.price, 'type' : dish.type, 'descr' : dish.descr, 'img': dish.img}
         output.append(dish_data)
     return jsonify({'dishes': output})
 
 @app.route('/dishes', methods=['POST'])
 def create_dish():
     data = request.json
-    new_dish = db.Dish(name=data['name'], price=data['price'])
+    new_dish = db.Dish(id=data['id'], name=data['name'], price=data['price'], type=data['type'], descr=data['descr'], img=data['img'])
     db.session.add(new_dish)
     db.session.commit()
     return jsonify({'message': 'Dish created successfully'}), 201
