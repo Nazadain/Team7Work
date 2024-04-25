@@ -24,6 +24,9 @@
   Мы использовали следующие языки программирования:
   ##  **[`JavaScript`](https://ru.wikipedia.org/wiki/JavaScript)** **[`CSS`](https://ru.wikipedia.org/wiki/CSS)** **[`HTML`](https://ru.wikipedia.org/wiki/HTML)** **[`PYTHON`](https://ru.wikipedia.org/wiki/Python)**
 
-**Руководители проекта**
+# Руководители проекта
+**[Павловский Никита]**
+**[Богданов Никита](https://vk.com/dotox)**
+Пономаренко Егор
 
 
