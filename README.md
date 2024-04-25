@@ -25,8 +25,8 @@
   ##  **[`JavaScript`](https://ru.wikipedia.org/wiki/JavaScript)** **[`CSS`](https://ru.wikipedia.org/wiki/CSS)** **[`HTML`](https://ru.wikipedia.org/wiki/HTML)** **[`PYTHON`](https://ru.wikipedia.org/wiki/Python)**
 
 # Руководители проекта
-**[Павловский Никита]**
+**[Павловский Никита](https://vk.com/nnnarr)**
 **[Богданов Никита](https://vk.com/dotox)**
-Пономаренко Егор
+**[Пономаренко Егор](https://vk.com/archeeezer)**
 
 
