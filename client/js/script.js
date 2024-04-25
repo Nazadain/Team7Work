@@ -6,16 +6,6 @@ const COUNT_SHOW_CARDS_CLICK = 5;
 const ERROR_SERVER = 'Ошибка сервера, попробуйте позже!';
 const NO_PRODUCTS_IN_THIS_CATEGORY = 'Товаров в этой категории нет!';
 
-function showErrorMessage(message) {
-    const h1 = document.querySelector('.wrapper h1')
-    const msg = 
-        `<div class="error">
-            <p>${message}</p>
-            <p><a href="/">Перейти к списку товаров!</a></p>
-        </div>`;
-    h1.insertAdjacentHTML('afterend', msg);
-}
-
 // Получение id из LS
 function getBasketLocalStorage() {
     const cartDataJSON = localStorage.getItem('basket');
@@ -47,11 +37,11 @@ function checkingRelevanceValueBasket(productsData) {
               /*Переменные*/ 
 //==========================================
 const cards = document.querySelector('.cards');
+let r_cards = document.querySelector('.pizza');
 let basket = document.querySelector( '#basketToggle');
 let basketButton = document.querySelector( '#basketButton');
 let blackFade = document.querySelector('#blackFade');
 let productsData = [];
-
 // Загрузка товаров
 getProducts()
 
@@ -79,7 +69,6 @@ async function getProducts() {
         renderStartPage(productsData);
 
     } catch (err) {
-        showErrorMessage(ERROR_SERVER);
         console.log(err.message);
     }
 }
@@ -89,8 +78,14 @@ function renderStartPage(data) {
         showErrorMessage(NO_PRODUCTS_IN_THIS_CATEGORY);
         return 
     };
-
-    let arrCards = productsData.filter((x) => {return x.type == 'pizza'});
+    let type = 'pizza';
+    let arrCards = productsData.filter((data) => {return data.type == 'pizza'});
+    createCards(arrCards);
+    arrCards = productsData.filter((data) => {return data.type == 'sushi'});
+    r_cards = document.querySelector('.sushi');
+    createCards(arrCards);
+    arrCards = productsData.filter((data) => {return data.type == 'dessert'});
+    r_cards = document.querySelector('.dessert');
     createCards(arrCards);
 
     checkingRelevanceValueBasket(data);
@@ -98,16 +93,6 @@ function renderStartPage(data) {
     const basket = getBasketLocalStorage();
     checkingActiveButtons(basket);
 }
-
-
-function sliceArrCards() {
-    if(shownCards >= productsData.length) return;
-
-    let arrCards = productsData.filter((data) => {return data.id > 5});
-    createCards(arrCards);
-    shownCards = cards.children.length;
-}
-
 
 function handleCardClick(event) {
     const targetButton = event.target.closest('.card__add');
@@ -129,7 +114,7 @@ function checkingActiveButtons(basket) {
     const buttons = document.querySelectorAll('.card__add');
 
     buttons.forEach(btn => {
-        const card = btn.closest('.pizza');
+        const card = btn.closest('.card');
         const id = card.dataset.productId;
         const isInBasket = basket.includes(id);
 
@@ -143,7 +128,7 @@ function checkingActiveButtons(basket) {
 // Рендер карточки
 function createCards(data) {
     data.forEach(card => {
-        const { id, title, type, price, img, descr } = card;
+        const { id, title, price, img, descr } = card;
 		const cardItem = 
 			`
             <div class="card" data-id="${id}">
@@ -161,7 +146,7 @@ function createCards(data) {
                 </footer>
             </div>
             `
-        cards.insertAdjacentHTML('beforeend', cardItem);
+        r_cards.insertAdjacentHTML('beforeend', cardItem);
 	});
 }
 
