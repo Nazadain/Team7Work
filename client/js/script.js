@@ -18,8 +18,7 @@ function setBasketLocalStorage(basket) {
     basketCount.textContent = basket.length;
 }
 
-// Проверка, существует ли товар указанный в LS 
-//(если например пару дней не заходил юзер, а товар, который у него в корзине, уже не существует)
+// Проверка, существует ли товар
 function checkingRelevanceValueBasket(productsData) {
     const basket = getBasketLocalStorage();
 
@@ -37,11 +36,12 @@ function checkingRelevanceValueBasket(productsData) {
 //==========================================
 const cards = document.querySelector('.cards');
 const container = document.querySelector('.container');
-const cart = document.querySelector('#basketToggle');
+const cart = document.querySelector('.cart');
 let r_cards = document.querySelector('.pizza');
 let basket = document.querySelector( '#basketToggle');
 let basketButton = document.querySelector( '#basketButton');
 let blackFade = document.querySelector('#blackFade');
+let sum = 0;
 let productsData = [];
 
 // Загрузка товаров
@@ -71,8 +71,16 @@ async function getProducts(flag) {
         if(flag == 0){
             renderStartPage(productsData);
             loadProductBasket(productsData);
-        }else 
+        }
+        else if(flag == 1) {
             loadProductBasket(productsData);
+        }else {
+            
+            renderStartPage(productsData);
+            loadProductBasket(productsData);
+        }
+
+            
         
     } catch (err) {
         console.log(err.message);
@@ -179,11 +187,6 @@ function basketClick(event) {
 function loadProductBasket(data) {
     cart.textContent = '';
 
-    if (!data || !data.length) {
-        showErrorMessage(ERROR_SERVER)
-        return;
-    }
-
     checkingRelevanceValueBasket(data);
     const basket = getBasketLocalStorage();
 
@@ -193,18 +196,15 @@ function loadProductBasket(data) {
 }
 
 function delProductBasket(event) {
-    const targetButton = event.target.closest('.cart_del');
+    const targetButton = event.target.closest('.cart__del-card');
     if (!targetButton) return;
 
-    const card = targetButton.closest('.cart_product');
+    const card = targetButton.closest('.cart__product');
     const id = card.dataset.productId;
-    console.log(id);
     const basket = getBasketLocalStorage();
-
     const newBasket = basket.filter(item => item !== id);
     setBasketLocalStorage(newBasket);
-
-    getProducts(1)
+    getProducts(1);
 }
 
 function renderProductsBasket(arr) {
@@ -212,13 +212,15 @@ function renderProductsBasket(arr) {
         const { id, title, price, img} = card;
         const cardItem = 
         `
-            <div class = "cart_product" data-product-id="${id}"
-                <div class="cart_del" style = "cursor:pointer; width:20px; height:20px; background-color:red; color:white;";>x</div>
+            <div class = "cart__product" data-product-id="${id}">
+                <div class="cart__del-card" style = "cursor:pointer; width:20px; height:20px; background-color:red; color:white;";>x</div>
                 <p>${title}</p>
+                <p>Цена: ${price}</p>
             </div>
         `;
 
         cart.insertAdjacentHTML('beforeend', cardItem);
+        
     });
 }
 
