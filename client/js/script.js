@@ -75,7 +75,9 @@ async function getProducts(flag) {
         else if(flag == 1) {
             loadProductBasket(productsData);
         }else {
-            document.querySelector(".cards").innerHTML = "";
+            document.querySelector(".pizza").innerHTML = "";
+            document.querySelector(".sushi").innerHTML = "";
+            document.querySelector(".dessert").innerHTML = "";
             renderStartPage(productsData);
             loadProductBasket(productsData);
         }
