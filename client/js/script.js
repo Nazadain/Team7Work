@@ -62,7 +62,7 @@ async function getProducts(flag) {
     try {
 
         if (!productsData.length) {
-            const res = await fetch('../data/products.json');
+            const res = await fetch("/products.json");
             if (!res.ok) {
                 throw new Error(res.statusText)
             }
@@ -92,14 +92,14 @@ function renderStartPage(data) {
         showErrorMessage(NO_PRODUCTS_IN_THIS_CATEGORY);
         return 
     };
-    let arrCards = productsData.filter((data) => {return data.type == 'pizza'});
+    let arrCards = productsData.slice(0, 10);
     createCards(arrCards);
-    arrCards = productsData.filter((data) => {return data.type == 'sushi'});
-    r_cards = document.querySelector('.sushi');
-    createCards(arrCards);
-    arrCards = productsData.filter((data) => {return data.type == 'dessert'});
-    r_cards = document.querySelector('.dessert');
-    createCards(arrCards);
+    // arrCards = productsData.filter((data) => {return data.type == 'sushi'});
+    // r_cards = document.querySelector('.sushi');
+    // createCards(arrCards);
+    // arrCards = productsData.filter((data) => {return data.type == 'dessert'});
+    // r_cards = document.querySelector('.dessert');
+    // createCards(arrCards);
 
     checkingRelevanceValueBasket(data);
 
@@ -147,8 +147,8 @@ function createCards(data) {
             <div class="card" data-product-id="${id}">
                 <a href="#" class="card__image">
                     <img
-                        src="./images/${img}"
-                        alt="${title}"
+                        src="{{ url_for('static', filename='images/${img}') }}"
+                        alt="${name}"
                     />
                 </a>
                 <h3>${title}</h3>
