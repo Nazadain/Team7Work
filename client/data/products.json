@@ -1,0 +1,75 @@
+[
+    {
+        "id": 1,
+        "type": "pizza",
+        "title": "Салями",
+        "price": "589",
+        "img": "salami.jpg",
+        "descr": "Вкусные роллы с икринками и лососем"
+    },
+    {
+        "id": 2,
+        "type": "pizza",
+        "title": "Оливковая",
+        "price": "799",
+        "img": "oliva.png",
+        "descr": "Вкусные роллы с икринками и лососем"
+    },
+    {
+        "id": 3,
+        "type": "pizza",
+        "title": "Песто",
+        "price": "599",
+        "img": "pesto.jpg",
+        "descr": "Вкусные роллы с икринками и лососем"
+    },
+    {
+        "id": 4,
+        "type": "roll",
+        "title": "Калифорния",
+        "price": "299",
+        "img": "california.jpg",
+        "descr": "Вкусные роллы с икринками и лососем"
+    },
+    {
+        "id": 5,
+        "type": "roll",
+        "title": "Филадельфия",
+        "price": "499",
+        "img": "filadelfia.jpg",
+        "descr": "Вкусные роллы с икринками и лососем"
+    },
+    {
+        "id": 6,
+        "type": "roll",
+        "title": "Маки",
+        "price": "189",
+        "img": "maki.jpg",
+        "descr": "Вкусные роллы с икринками и лососем"
+    },
+    {
+        "id": 7,
+        "type": "dessert",
+        "title": "Тирамису",
+        "price": "199",
+        "img": "tiramisu.jpg",
+        "descr": "Вкусные роллы с икринками и лососем"
+    },
+    {
+        "id": 8,
+        "type": "dessert",
+        "title": "Салями",
+        "price": "199",
+        "img": "cheesecake.jpg",
+        "descr": "Вкусные роллы с икринками и лососем"
+    },
+    {
+        "id": 9,
+        "type": "dessert",
+        "title": "Салями",
+        "price": "189",
+        "img": "mochi.jpg",
+        "descr": "Вкусные роллы с икринками и лососем"
+    }
+]
+
