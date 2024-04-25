@@ -2,7 +2,6 @@
 //==========================================
            /*Карточки товаров*/ 
 //==========================================
-const COUNT_SHOW_CARDS_CLICK = 5;
 const ERROR_SERVER = 'Ошибка сервера, попробуйте позже!';
 const NO_PRODUCTS_IN_THIS_CATEGORY = 'Товаров в этой категории нет!';
 
@@ -37,15 +36,19 @@ function checkingRelevanceValueBasket(productsData) {
               /*Переменные*/ 
 //==========================================
 const cards = document.querySelector('.cards');
+const container = document.querySelector('.container');
+const cart = document.querySelector('#basketToggle');
 let r_cards = document.querySelector('.pizza');
 let basket = document.querySelector( '#basketToggle');
 let basketButton = document.querySelector( '#basketButton');
 let blackFade = document.querySelector('#blackFade');
 let productsData = [];
-// Загрузка товаров
-getProducts()
 
-cards.addEventListener('click', handleCardClick);
+// Загрузка товаров
+getProducts(0);
+
+container.addEventListener('click', handleCardClick);
+cart.addEventListener('click', delProductBasket);
 document.addEventListener('click', basketClick);
 document.addEventListener('keydown', function(e) {
 	if( e.keyCode == 27 && basket.classList.contains("show")){
@@ -55,7 +58,7 @@ document.addEventListener('keydown', function(e) {
 });
 
 // Получение товаров
-async function getProducts() {
+async function getProducts(flag) {
     try {
 
         if (!productsData.length) {
@@ -65,9 +68,12 @@ async function getProducts() {
             }
             productsData = await res.json();
         }
+        if(flag == 0){
+            renderStartPage(productsData);
+            loadProductBasket(productsData);
+        }else 
+            loadProductBasket(productsData);
         
-        renderStartPage(productsData);
-
     } catch (err) {
         console.log(err.message);
     }
@@ -78,7 +84,6 @@ function renderStartPage(data) {
         showErrorMessage(NO_PRODUCTS_IN_THIS_CATEGORY);
         return 
     };
-    let type = 'pizza';
     let arrCards = productsData.filter((data) => {return data.type == 'pizza'});
     createCards(arrCards);
     arrCards = productsData.filter((data) => {return data.type == 'sushi'});
@@ -104,9 +109,9 @@ function handleCardClick(event) {
 
     if (basket.includes(id)) return;
     basket.push(id);
-    console.log(id);
     setBasketLocalStorage(basket);
     checkingActiveButtons(basket);
+    getProducts(1);
 }
 
 
@@ -131,7 +136,7 @@ function createCards(data) {
         const { id, title, price, img, descr } = card;
 		const cardItem = 
 			`
-            <div class="card" data-id="${id}">
+            <div class="card" data-product-id="${id}">
                 <a href="#" class="card__image">
                     <img
                         src="./images/${img}"
@@ -150,6 +155,7 @@ function createCards(data) {
 	});
 }
 
+// Открытие/закрытие корзины
 function basketClick(event) {
     let insideMenu = event.composedPath().includes(basket);
     let insideButton = event.composedPath().includes(basketButton);
@@ -170,9 +176,6 @@ function basketClick(event) {
                 /*Корзина*/ 
 //==========================================
 
-//const cart = document.querySelector('.cart');
-//cart.addEventListener('click', delProductBasket);
-
 function loadProductBasket(data) {
     cart.textContent = '';
 
@@ -184,58 +187,35 @@ function loadProductBasket(data) {
     checkingRelevanceValueBasket(data);
     const basket = getBasketLocalStorage();
 
-    if(!basket || !basket.length) {
-        showErrorMessage(NO_ITEMS_CART)
-        return;
-    }
-
     const findProducts = data.filter(item => basket.includes(String(item.id)));
-
-    if(!findProducts.length) {
-        showErrorMessage(NO_ITEMS_CART)
-        return;
-    }
 
     renderProductsBasket(findProducts);
 }
 
 function delProductBasket(event) {
-    const targetButton = event.target.closest('.cart__del-card');
+    const targetButton = event.target.closest('.cart_del');
     if (!targetButton) return;
 
-    const card = targetButton.closest('.cart__product');
+    const card = targetButton.closest('.cart_product');
     const id = card.dataset.productId;
+    console.log(id);
     const basket = getBasketLocalStorage();
 
     const newBasket = basket.filter(item => item !== id);
     setBasketLocalStorage(newBasket);
 
-    getProducts()
+    getProducts(1)
 }
 
 function renderProductsBasket(arr) {
     arr.forEach(card => {
-        const { id, title, type, price, img, descr } = card;
+        const { id, title, price, img} = card;
         const cardItem = 
         `
-        <div class="cart__product" data-product-id="${id}">
-            <div class="cart__img">
-                <img src="./images/${img}" alt="${title}">
+            <div class = "cart_product" data-product-id="${id}"
+                <div class="cart_del" style = "cursor:pointer; width:20px; height:20px; background-color:red; color:white;";>x</div>
+                <p>${title}</p>
             </div>
-            <div class="cart__title">${title}</div>
-            <div class="cart__block-btns">
-                <div class="cart__minus">-</div>
-                <div class="cart__count">1</div>
-                <div class="cart__plus">+</div>
-            </div>
-            <div class="cart__price">
-                <span>${price}</span>₽
-            </div>
-            <div class="cart__price-discount">
-                <span>${priceDiscount}</span>₽
-            </div>
-            <div class="cart__del-card">X</div>
-        </div>
         `;
 
         cart.insertAdjacentHTML('beforeend', cardItem);
