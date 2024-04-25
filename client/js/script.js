@@ -47,8 +47,8 @@ function checkingRelevanceValueBasket(productsData) {
               /*Переменные*/ 
 //==========================================
 const cards = document.querySelector('.cards');
-const basketMonitor = document.querySelector( '#basketToggle');
-const basketButton = document.querySelector( '#basketButton');
+let basket = document.querySelector( '#basketToggle');
+let basketButton = document.querySelector( '#basketButton');
 let blackFade = document.querySelector('#blackFade');
 let productsData = [];
 
@@ -56,7 +56,13 @@ let productsData = [];
 getProducts()
 
 cards.addEventListener('click', handleCardClick);
-basketButton.addEventListener('click', handleCardClick);
+document.addEventListener('click', basketClick);
+document.addEventListener('keydown', function(e) {
+	if( e.keyCode == 27 && basket.classList.contains("show")){
+		basket.classList.remove("show");
+        blackFade.style.display = 'none';
+	}
+});
 
 // Получение товаров
 async function getProducts() {
@@ -160,24 +166,21 @@ function createCards(data) {
 }
 
 function basketClick(event) {
-    const insideMenu = event.target(basketMonitor);
-    let insideButton = event.target(basketButton);
+    let insideMenu = event.composedPath().includes(basket);
+    let insideButton = event.composedPath().includes(basketButton);
 	if(insideButton) {
-        if(!basketMonitor.classList.contains("show")) {
-            basketMonitor.classList.add("show");
+        if(!basket.classList.contains("show")) {
+            basket.classList.add("show");
             blackFade.style.display = 'block';
-        }
-        else {
-            basketMonitor.classList.remove("show");
+        }else {
+            basket.classList.remove("show");
             blackFade.style.display = 'none';
         }
-    }
-    else if(! insideMenu && basketMonitor.classList.contains("show")) {
-        basketMonitor.classList.remove("show");
+    }else if(!insideMenu && basket.classList.contains("show")){
+        basket.classList.remove("show");
         blackFade.style.display = 'none';
     }
 }
-
 //==========================================
                 /*Корзина*/ 
 //==========================================
