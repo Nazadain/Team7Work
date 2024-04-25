@@ -23,9 +23,9 @@
 # Разработка
   Мы использовали следующие языки программирования:
   ##  **[`JavaScript`](https://ru.wikipedia.org/wiki/JavaScript)**
-  ##  `CSS`
-  ##  `HTML`
-  ##  `PYTHON`
+  ##  **[`CSS`](https://ru.wikipedia.org/wiki/CSS)**
+  ##  **[`HTML`](https://ru.wikipedia.org/wiki/HTML)**
+  ##  **[`PYTHON`](https://ru.wikipedia.org/wiki/Python)**
 
 
 
