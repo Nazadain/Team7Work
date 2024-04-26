@@ -10,15 +10,19 @@
     </head>
     <body>
         <div class="login">
-            <h1>SuperFood </h1>
-            <form method="post" class="loginForm">
-                <input type="text" name="title" placeholder="Логин"><br>
-                <input type="password" name="pass" placeholder="Пароль"><br>
-                <button type="submit">Войти</button>
+            <form method="post">
+                <div class="title">SUPER FOOD</div>
+                <div class="input-container ic2">
+                    <input class="input" type="text" name="title" placeholder="Логин">
+                </div>
+                <div class="input-container ic2">
+                    <input class="input " type="password" name="pass" placeholder="Пароль">
+                </div>
+                <button class="submit" type="submit">Войти</button>
+                <a href="/register">
+                    <button class="submit register" type="button">Регистрация</button>
+                </a>
             </form>
-            <a href="/register">
-                <button>Регистрация</button>
-             </a>
         </div>
     </body>
 </html>

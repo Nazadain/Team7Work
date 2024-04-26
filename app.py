@@ -97,6 +97,8 @@ def register_page():
         password = request.form['password']
         role = request.form['role']
         user = User(username=username, password_hash=password, email=email, role=role)
+        if username == '' or email == '' or password == '':
+            return render_template('register.html')
         try:
             db.session.add(user)
             db.session.commit()

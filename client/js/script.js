@@ -42,12 +42,10 @@ function checkingRelevanceValueBasket(productsData) {
 const cards = document.querySelector('.cards');
 const container = document.querySelector('.container');
 const cart = document.querySelector('.cart_order');
-let price_sum = document.querySelector('.price_sum');
 let r_cards = document.querySelector('.pizza');
 let basket = document.querySelector( '#basketToggle');
 let basketButton = document.querySelector( '#basketButton');
 let blackFade = document.querySelector('#blackFade');
-let sum = 0;
 let productsData = [];
 
 // Загрузка товаров
@@ -125,8 +123,6 @@ function handleCardClick(event) {
     const basket = getBasketLocalStorage();
 
     if (basket.includes(id)) return;
-    sum += parseInt(this.childNodes[2].textContent.toString());
-    document.querySelector('.price_sum').innerHTML = 'Всего:' + sum;
     basket.push(id);
     setBasketLocalStorage(basket);
     checkingActiveButtons(basket);
