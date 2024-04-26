@@ -1,7 +1,6 @@
 import os
 from flask import Flask, redirect, request, jsonify, render_template, send_from_directory, url_for, flash
 from flask_login import UserMixin
-from werkzeug.security import generate_password_hash, check_password_hash
 from flask_sqlalchemy import SQLAlchemy
 
 
@@ -90,6 +89,22 @@ def manager():
 def order():
     return render_template('order.html')
 
+@app.route('/register', methods=['GET', 'POST'])
+def register_page():
+    if request.method == 'POST':
+        username = request.form['username']
+        email = request.form['email']
+        password = request.form['password']
+        role = request.form['role']
+        user = User(username=username, password_hash=password, email=email, role=role)
+        try:
+            db.session.add(user)
+            db.session.commit()
+            return redirect(url_for('index')) 
+        except:
+            return render_template('register.html')
+    return render_template('register.html')
+                
 def serve_static(filename):
     return send_from_directory(app.static_folder, filename)
 
