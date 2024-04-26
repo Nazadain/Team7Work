@@ -16,6 +16,11 @@ function setBasketLocalStorage(basket) {
     const basketCount = document.querySelector('.basket__count');
     localStorage.setItem('basket', JSON.stringify(basket));
     basketCount.textContent = basket.length;
+    if (basket.length >= 3) {
+        document.querySelector( '#basketToggle').classList.add('scroll');
+    }else {
+        document.querySelector( '#basketToggle').classList.remove('scroll');
+    }
 }
 
 // Проверка, существует ли товар
@@ -36,7 +41,8 @@ function checkingRelevanceValueBasket(productsData) {
 //==========================================
 const cards = document.querySelector('.cards');
 const container = document.querySelector('.container');
-const cart = document.querySelector('.cart');
+const cart = document.querySelector('.cart_order');
+let price_sum = document.querySelector('.price_sum');
 let r_cards = document.querySelector('.pizza');
 let basket = document.querySelector( '#basketToggle');
 let basketButton = document.querySelector( '#basketButton');
@@ -119,6 +125,8 @@ function handleCardClick(event) {
     const basket = getBasketLocalStorage();
 
     if (basket.includes(id)) return;
+    sum += parseInt(this.childNodes[2].textContent.toString());
+    document.querySelector('.price_sum').innerHTML = 'Всего:' + sum;
     basket.push(id);
     setBasketLocalStorage(basket);
     checkingActiveButtons(basket);
@@ -214,13 +222,12 @@ function renderProductsBasket(arr) {
     arr.forEach(card => {
         const { id, title, price, img} = card;
         const cardItem = 
-        `
-            <div class = "cart__product" data-product-id="${id}">
-                <div class="cart__del-card" style = "cursor:pointer; width:20px; height:20px; background-color:red; color:white;";>x</div>
+        `<div class = "cart__product" data-product-id="${id}">
+            <img src = "static/images/${img}">
+                <div class="cart__del-card">x</div>
                 <p>${title}</p>
-                <p>Цена: ${price}</p>
-            </div>
-        `;
+                <p>Цена: ${price}₽</p>
+        </div>`;
 
         cart.insertAdjacentHTML('beforeend', cardItem);
         

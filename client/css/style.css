@@ -49,6 +49,60 @@ html, body {
     right: -450px;
     transition: 0.25s;
     z-index: 5;
+    text-align: center;
+}
+.cart a {
+    text-decoration: none;
+    font-size: 18px;
+    color: white;
+    background-color: #EA5C2B;
+    border: 0px solid #EA5C2B;
+    border-radius: 15px;
+    padding: 2%;
+}
+.cart a:hover {
+    background-color: #FF7F3F;
+    transition: 0.25s;
+}
+.cart_order {
+    display: flex;
+    position: relative;
+    width: 100%;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-bottom: 2%;
+}
+.scroll {
+    overflow-y:scroll; 
+}
+.login {
+    width: 60%;
+    margin: 0 auto;
+    text-align: center;
+}
+.loginForm {
+    text-align: center;
+}
+.login input {
+    margin: 5px;
+}
+.cart__product {
+    border: 1px solid black;
+    width: 80%;
+    margin-bottom: 2%;
+    position: relative;
+}
+.cart__product img {
+    width: 100px;
+    height: 100px;
+}
+.cart__del-card {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 24px;
+    cursor: pointer;
 }
 .show {
     right: 0;

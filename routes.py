@@ -1,8 +1,9 @@
+
 from flask import render_template, request, jsonify, redirect, url_for, flash
 from app import app
 from models import db
 
-@app.route('/', methods=['GET'])
+@app.route('/', methods=['GET', 'POST'])
 def process_request():
     address = request.args.get('address')
     comment = request.args.get('comment')
