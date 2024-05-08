@@ -11,7 +11,7 @@
 </head>
 <body>
     <header class="header">
-        <div class="logo"><a href="/lib/shop.php" class="nav__link">superFood</a></div>
+        <div class="logo"><a href="/" class="nav__link">superFood</a></div>
         <nav class="nav">
             <ul class="nav__list">
                 <li class="nav__item"><a href="#pizza__anchor" class="nav__link">pizza</a></li>
