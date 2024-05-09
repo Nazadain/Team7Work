@@ -98,6 +98,9 @@ body{
     justify-content: space-between;
     width: 300px;
 }
+.card__form {
+    display: flex;
+}
 .card img {
     width: 100%;
     height: 300px;
@@ -105,7 +108,7 @@ body{
 .card__description {
     color: #B1A7A6;
 }
-.card button {
+.card__add {
     border: 1px solid;
     border-radius: 20px;
     background-color: #BA181B;
@@ -116,12 +119,19 @@ body{
     font-family: "Exo 2", sans-serif;
     font-size: 16px;
 }
-.card button:hover {
+.card__add:hover {
     background-color: #E5383B;
     transition: 0.25s;
 }
-.price {
-    font-size: 19px;
+.card__price {
+    font-size: 20px;
+}
+.in__cart {
+    background-color: #B1A7A6;
+    pointer-events: none;
+}
+.cards .card__price::after {
+    content: "₽";
 }
 .card__footer {
     display: flex;
@@ -131,6 +141,10 @@ body{
     padding: 5% 0;
 }
 .cart__container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
     position: fixed;
     right: -450px;
     top: 0;
@@ -140,6 +154,19 @@ body{
     z-index: 3;
     transition: 0.25s;
     overflow-y: scroll;
+}
+.cart__product-wrap {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-flow: row nowrap;
+    width: 100%;
+}
+.cart__product-image {
+    width: 100px;
+}
+.cart__product-wrap .card__delete {
+    content: 'X';
 }
 .cart__show {
     right: 0;

@@ -25,5 +25,6 @@
         </div>
     </footer>
 <script src="/js/script.js"></script>
+<script src="/js/cart.js"></script>
 </body>
 </html>

@@ -1,17 +1,19 @@
 <?php
 session_start();
+
 $title = "Super Food";
-require_once "blocks/header.php";
-require_once "blocks/functions.php";
+require_once "include/header.php";
+require_once "include/functions.php";
 $link = mysqli_connect('localhost', 'root', '', 'delivery');
 mysqli_set_charset($link, "utf8");
-
 $pizzaArr = dbParse($link->query("SELECT `id`, `name`, `price`, `image`, `description` FROM `restaurant_menu_item` WHERE `type` = 'pizza'"));
 $sushiArr = dbParse($link->query("SELECT `id`, `name`, `price`, `image`, `description` FROM `restaurant_menu_item` WHERE `type` = 'sushi'"));
 $dessertArr = dbParse($link->query("SELECT `id`, `name`, `price`, `image`, `description` FROM `restaurant_menu_item` WHERE `type` = 'dessert'"));
+$_SESSION['Products'] = dbParse($link->query("SELECT * FROM `restaurant_menu_item`"));
 
 ?>
-<div class="cart__container"></div>
+<div class="cart__container">
+</div>
 <div class="window__shadow"></div>
 <div class="container">
     <div class="main__image"></div>
@@ -53,7 +55,7 @@ $dessertArr = dbParse($link->query("SELECT `id`, `name`, `price`, `image`, `desc
             }
             renderCard($id, $name, $price, $image, $description, $imgDir);
         }
-            ?>
+        ?>
         </div>
     </div>
     <a name="desserts__anchor"></a>
@@ -77,7 +79,6 @@ $dessertArr = dbParse($link->query("SELECT `id`, `name`, `price`, `image`, `desc
         </div>
     </div>
 </div>
-
 <?php
-require_once "blocks/footer.php";
+require_once "include/footer.php";
 ?>
