@@ -1,6 +1,4 @@
 <?php
-session_start();
-
 $title = "Super Food";
 require_once "include/header.php";
 require_once "include/functions.php";
@@ -77,9 +75,7 @@ $dessertArr = dbParse($link->query("SELECT `id`, `name`, `price`, `image`, `desc
         </div>
     </div>
 </div>
+
 <?php
 require_once "include/footer.php";
-
-$data = json_decode($_POST['data']);
-print_r($data);
 ?>
