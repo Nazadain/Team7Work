@@ -3,8 +3,9 @@ const cartItems = document.querySelector('.cart__items');
 const cartContainer = document.querySelector('.cart__container');
 const cartButton = document.querySelector('.cart__link');
 const windowShadow = document.querySelector('.window__shadow');
+let spliceIndex;
 let cartProducts;
-let flag = false;
+let isCartFull = false;
 
 function cartOpenClick(event) {
     let insideMenu = event.composedPath().includes(cartContainer);
@@ -22,7 +23,6 @@ function cartOpenClick(event) {
         windowShadow.style.display = 'none';
     }
 }
-
 function cartAddClick(event) {
   const targetButton = event.target.closest('.card__add');
   if(!targetButton) 
@@ -35,39 +35,43 @@ function cartAddClick(event) {
   let cardPrice = card.querySelector('.card__price').innerText;
   card.querySelector('.card__add').classList.add('in__cart');
   card.querySelector('.card__add').innerText = "In cart";
-  if(!flag) {
+  if(!isCartFull) {
     cartProducts = cartSet(cardId, cardTitle, cardImage, cardDescription, cardPrice);
-    flag = true;
+    isCartFull = true;
   }else
     cartAddProduct(cardId, cardTitle, cardImage, cardDescription, cardPrice);
-  console.log(cartProducts)
+  renderCart(cartProducts);
 }
 
 function cartQuantityClick(event) {
   const btn = event.target.closest(".minus, .plus");
   if(!btn) return;
-  const card = btn.closest('.card');
-  const cardId = card.querySelector('.product__id').value;
-  const cartBtn = card.querySelector('.card__add');
+  const card = btn.closest('.cart__product');
+  const cardId = card.dataset.productId;
+  // const cartBtn = card.querySelector('.card__add');
   let cartItem;
   for(let i = 0; i < cartProducts.length; i++) {
     if(cardId == cartProducts[i].id) {
       cartItem = cartProducts[i];
+      spliceIndex = i;
+      break;
     }
   }
   if(btn.classList == "plus")
-    cartPlus(i);
+    cartPlus(cartItem);
   else {
     cartMinus(cartItem);
     if(cartItem.quantity <= 0) {
-      cartBtn.innerText = "Add to cart";
-      cartBtn.classList.remove('in__cart');
-      cartProducts[i] = '';
-      console.log(cartProducts);
+      // cartBtn.innerText = "Add to cart";
+      // cartBtn.classList.remove('in__cart');
+      cartProducts.splice(spliceIndex, 1);
+      cardBtnActive(cardId);
+    }
+    if(cartProducts.length <= 0) {
+      isCartFull = false;
     }
   }
-    
-
+  renderCart(cartProducts);
 }
 
 function cartSet(id, title, image, desc, price) {
@@ -91,6 +95,25 @@ function cartAddProduct(id, title, image, desc, price) {
     }
   }
   cartProducts.push({"id": id, "title": title, "image": image, "desc": desc, "price": price, "quantity" : 1});
+  renderCart(cartProducts);
+}
+
+function cartDelClick(event) {
+  const btn = event.target.closest('.cart__del-card');
+  if(!btn) return;
+  const card = btn.closest('.cart__product');
+  let cardId = card.dataset.productId;
+  for(let i = 0; i < cartProducts.length; i++) {
+    if(cardId == cartProducts[i].id) {
+      cartProducts.splice(i, 1);
+      break;
+    }
+  }
+  if(cartProducts.length <= 0) {
+    isCartFull = false;
+  }
+  cardBtnActive(cardId);
+  renderCart(cartProducts);
 }
 
 function cartPlus(cartItem) {
@@ -102,6 +125,7 @@ function cartMinus(cartItem) {
 }
 
 document.addEventListener('click', cartAddClick);
+document.addEventListener('click', cartDelClick);
 document.addEventListener('click', cartQuantityClick);
 document.addEventListener('click', cartOpenClick);
 document.addEventListener('keydown', (e) => {
@@ -111,33 +135,69 @@ document.addEventListener('keydown', (e) => {
 	}
 });
 
-function renderCart(arr) {
-  arr.forEach(card => {
-      const { id, img, title, price} = card;
-      const priceDiscount = price - ((price * discount) / 100);
+function cardBtnActive(cardId) {
+  let product = document.querySelectorAll('.card');
+  let productId;
+  let addBtn;
+  for(let i = 0; i < product.length; i++) {
+    productId = product[i].querySelector(".product__id").value;
+    if(productId == cardId) {
+      addBtn = product[i].querySelector('.card__add');
+      addBtn.classList.remove('in__cart');
+      addBtn.innerText = "Add to cart";
+      break;
+    }
+  }
+}
 
+function cartData() {
+  let jsonProducts = JSON.stringify(cartProducts);
+  $.ajax({
+    url: '/index.php',
+    type: 'POST',
+    data: {data: jsonProducts},
+    success: function() {
+    }
+});
+}
+
+function renderCart(arr) {
+  cartContainer.innerHTML = '';
+  let fullPrice = 0;
+  arr.forEach(card => {
+      const { id, image, title, price, quantity} = card;
+      fullPrice += Number(price) * Number(quantity);
       const cardItem = 
       `
       <div class="cart__product" data-product-id="${id}">
-          <div class="cart__img">
-              <img src="./images/${img}" alt="${title}">
+          <div class="cart__image">
+              <img src="${image}" alt="${title}">
           </div>
           <div class="cart__title">${title}</div>
           <div class="cart__block-btns">
-              <div class="cart__minus">-</div>
-              <div class="cart__count">1</div>
-              <div class="cart__plus">+</div>
+              <button class="minus">-</button>
+              <div class="cart__count">${quantity}</div>
+              <button class="plus">+</button>
           </div>
           <div class="cart__price">
               <span>${price}</span>₽
           </div>
-          <div class="cart__price-discount">
-              <span>${priceDiscount}</span>₽
-          </div>
-          <div class="cart__del-card">X</div>
+          <button class="cart__del-card">X</button>
       </div>
       `;
-
-      cart.insertAdjacentHTML('beforeend', cardItem);
+      cartContainer.insertAdjacentHTML('beforeend', cardItem);
   });
+  let cardContainer;
+  if(isCartFull == true) {
+    cardContainer = 
+    `
+    <p>Итого: ${fullPrice}₽</p>
+    <a href="#" class="order__button">Оформить заказ</a>
+    `;
+  }
+  else {
+    cardContainer = '';
+  }
+  cartContainer.insertAdjacentHTML('beforeend', cardContainer);
+  cartData();
 }

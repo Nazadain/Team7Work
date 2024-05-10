@@ -20,9 +20,7 @@ function renderCard($id, $name, $price, $image, $description, $imgDir) {
             </header>
             <footer class=\"card__footer\">
                 <p class=\"card__price\">$price</p>
-                <button class=\"minus\">-</button>
                 <button class=\"card__add\">Add&nbspto&nbspcart</button>
-                <button class=\"plus\">+</button>
             </footer>
         </div>");
 }

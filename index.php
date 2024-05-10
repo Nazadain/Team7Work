@@ -9,11 +9,9 @@ mysqli_set_charset($link, "utf8");
 $pizzaArr = dbParse($link->query("SELECT `id`, `name`, `price`, `image`, `description` FROM `restaurant_menu_item` WHERE `type` = 'pizza'"));
 $sushiArr = dbParse($link->query("SELECT `id`, `name`, `price`, `image`, `description` FROM `restaurant_menu_item` WHERE `type` = 'sushi'"));
 $dessertArr = dbParse($link->query("SELECT `id`, `name`, `price`, `image`, `description` FROM `restaurant_menu_item` WHERE `type` = 'dessert'"));
-$_SESSION['Products'] = dbParse($link->query("SELECT * FROM `restaurant_menu_item`"));
 
 ?>
-<div class="cart__container">
-</div>
+<div class="cart__container"></div>
 <div class="window__shadow"></div>
 <div class="container">
     <div class="main__image"></div>
@@ -81,4 +79,7 @@ $_SESSION['Products'] = dbParse($link->query("SELECT * FROM `restaurant_menu_ite
 </div>
 <?php
 require_once "include/footer.php";
+
+$data = json_decode($_POST['data']);
+print_r($data);
 ?>
