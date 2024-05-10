@@ -1,0 +1,87 @@
+.container {
+    width: 50%;
+    margin: 0 auto;
+    box-shadow: 0 0 10px lightgrey;
+}
+.container header {
+    display: flex;
+    justify-content: center;
+}
+.container .products__container {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+.products__container .product {
+    width: 70%;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-around;
+    box-shadow: 0 0 10px lightgrey;
+    padding: 10px 0;
+    margin: 10px;
+}
+.product img {
+    width: 100px;
+    height: 100px;
+}
+.price {
+    font-size: 20px;
+}
+.logo {
+    position: static;
+    line-height: 26px;
+    margin-left: 20px;
+}
+.header {
+    justify-content: flex-start;
+}
+.container footer {
+    display: flex;
+    justify-content: center;
+}
+.form {
+    width: 60%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+.form input {
+    margin: 5px 0;
+    width: 150px;
+    border: 1px solid black;
+    padding: 10px;
+    border-radius: 5px;
+}
+.form__row {
+    display: flex;
+    justify-content: center;
+}
+.form__row:last-of-type input:first-child{
+    width: 50px;
+}
+.form__row:last-of-type input:last-child{
+    width: 100px;
+}
+#submit {
+    padding: 10px 15px;
+    background-color: #BA181B;
+    width: 150px;
+    font-size: 18px;
+    color: white;
+    border: 0px;
+    border-radius: 25px;
+    cursor: pointer;
+    margin-bottom: 25px;
+}
+#submit:hover {
+    background-color: #E5383B;
+    transition: 0.2s;
+}
+.form__footer {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+}

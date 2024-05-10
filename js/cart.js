@@ -6,10 +6,14 @@ const windowShadow = document.querySelector('.window__shadow');
 let cartProducts;
 let spliceIndex;
 let isCartEmpty = true;
-let isCartHaveItems = false;
 
-getCookie();
-renderCart();
+cartProducts = getCookie();
+
+if(cartProducts && cartProducts.length >= 1) {
+  isCartEmpty = false;
+}
+
+renderCart()
 
 //обработчик нажатия на кнопку "cart"
 function cartOpenClick(event) {
@@ -27,26 +31,6 @@ function cartOpenClick(event) {
         cartContainer.classList.remove("cart__show");
         windowShadow.style.display = 'none';
     }
-}
-
-//запись данных из куки в переменную cartProducts
-function getCookie() {
-  let cartCookie = document.cookie.split(";");
-  for(cookie of cartCookie){
-    const parts = cookie.split("=");
-    if(parts[0] == 'cart') {
-      if(!cartProducts) {
-        cartProducts = parts[1];
-        isCartHaveItems = true;
-      }
-      else 
-        cartProducts += parts[1];
-    }
-  }
-  if(isCartHaveItems) {
-    isCartEmpty = false;
-    cartProducts = JSON.parse(cartProducts);
-  }
 }
 
 //обработчик нажатия по кнопке "В корзину"
@@ -68,7 +52,7 @@ function cartAddClick(event) {
   }else
     cartAddProduct(cardId, cardTitle, cardImage, cardDescription, cardPrice);
   setCartCookie();
-  renderCart();
+  renderCart()
 }
 
 //обработчик нажатия на кнопки "+" и "-" у товара в корзине
@@ -102,7 +86,7 @@ function cartQuantityClick(event) {
     }
   }
   setCartCookie();
-  renderCart();
+  renderCart()
 }
 
 //запись данных о товарах в корзине в куки
@@ -131,7 +115,7 @@ function cartAddProduct(id, title, image, desc, price) {
     }
   }
   cartProducts.push({"id": id, "title": title, "image": image, "desc": desc, "price": price, "quantity" : 1});
-  renderCart();
+  renderCart()
 }
 
 //обработчик нажатия по кнопке "Удалить из корзины"
@@ -151,7 +135,7 @@ function cartDelClick(event) {
   }
   setBtnState(cardId)
   setCartCookie();
-  renderCart();
+  renderCart()
 }
 
 function cartPlus(cartItem) {
@@ -194,7 +178,6 @@ function setBtnState(cardId) {
   }
 }
 
-//рендер карточки
 function renderCart() {
   cartContainer.innerHTML = '';
   if(isCartEmpty) {
@@ -233,8 +216,8 @@ function renderCart() {
   if(!isCartEmpty) {
     cardContainer = 
     `
-    <p>Итого: ${fullPrice}₽</p>
-    <a href="#" class="order__button">Оформить заказ</a>
+    <p>Total: ${fullPrice}₽</p>
+    <a href="/order.php" class="order__button">Make order</a>
     `;
   }
   else {

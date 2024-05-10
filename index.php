@@ -1,5 +1,6 @@
 <?php
 $title = "Super Food";
+$file = "index.css";
 require_once "include/header.php";
 require_once "include/functions.php";
 $link = mysqli_connect('localhost', 'root', '', 'delivery');
@@ -75,7 +76,7 @@ $dessertArr = dbParse($link->query("SELECT `id`, `name`, `price`, `image`, `desc
         </div>
     </div>
 </div>
-
 <?php
 require_once "include/footer.php";
 ?>
+<script src="/js/cart.js"></script>
