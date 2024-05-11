@@ -20,21 +20,22 @@ if(strlen($firstName) <= 0 || strlen($secondName) <= 0 || strlen($address) <= 0 
 else {
     $_SESSION['error'] = '';
 }
- 
-
-$link->query("INSERT INTO `customer` (`first_name`, `second_name`, `phone`, `address`) VALUES ('$firstName', '$secondName', '$phone', '$address')");
 $customerId = dbParse($link->query("SELECT `id` FROM `customer` WHERE `phone` = '$phone'"));
-$date = date('20y-m-d h-i-s');
-$link->query("INSERT INTO `order` (`customer_id`, `status`, `date`) VALUES ('{$customerId[0]['id']}', 'created', '$date')");
+if($customerId == null) {
+    $link->query("INSERT INTO `customer` (`first_name`, `second_name`, `phone`, `address`) VALUES ('$firstName', '$secondName', '$phone', '$address')");
+}
 
-$orderId = dbParse($link->query("SELECT `id` FROM `order` WHERE `customer_id` = '$customerId' AND `status` = 'created'"));
+$customerId = (int)$customerId[0]['id'];
+$date = date('20y-m-d h-i-s');
+$link->query("INSERT INTO `order` (`customer_id`, `status`, `date`) VALUES ('$customerId', 'created', '$date')");
+$orderId = dbParse($link->query("SELECT `id` FROM `order` ORDER BY `id` DESC LIMIT 0, 1 "));
+$orderId = (int)$orderId[0]['id'];
 
 foreach($cart as $key => $item) {
     $itemId = (int)$item['id'];
     $itemPrice = (int)$item['price'];
     $itemQuantity = (int)$item['quantity'];
     $link->query("INSERT INTO `order_item` (`order_id`, `restaurant_menu_item`, `price`, `quantity`) VALUES ('$orderId', '$itemId', '$itemPrice', '$itemQuantity')");
-    print_r($itemId . " " . $itemPrice . " " . $itemQuantity . " | ");
 }
 
 $link->close();
