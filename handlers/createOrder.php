@@ -25,7 +25,9 @@ if($customerId == null) {
     $link->query("INSERT INTO `customer` (`first_name`, `second_name`, `phone`, `address`) VALUES ('$firstName', '$secondName', '$phone', '$address')");
 }
 
+$customerId = dbParse($link->query("SELECT `id` FROM `customer` WHERE `phone` = '$phone'"));
 $customerId = (int)$customerId[0]['id'];
+
 $date = date('20y-m-d h-i-s');
 $link->query("INSERT INTO `order` (`customer_id`, `status`, `date`) VALUES ('$customerId', 'created', '$date')");
 $orderId = dbParse($link->query("SELECT `id` FROM `order` ORDER BY `id` DESC LIMIT 0, 1 "));
@@ -39,6 +41,6 @@ foreach($cart as $key => $item) {
 }
 
 $link->close();
-
+setcookie('customer', "$customerId", time() + 2678400 ,'/');
 setcookie('cart', NULL, time()-3600, '/');
-redirect('/index.php');
+redirect('/orders.php');

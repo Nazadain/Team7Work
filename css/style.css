@@ -31,19 +31,38 @@ body{
     left: 20px;
     color: #BA181B;
 }
-.cart__link{
+.order__link {
     position: absolute;
+    right: 20px;
     top: 10px;
-    right: 30px;
-    padding: 3px 20px;
+    padding: 5px 10px;
     text-decoration: none;
-    color: #fff;
     background-color: #BA181B;
+    color: #fff;
     border-radius: 25px;
+}
+.cart__link{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 15px;
+    right: 30px;
+    text-decoration: none;
+    box-shadow: 0 0 10px lightgrey;
+    background-color: #fff;
+    border-radius: 100%;
     font-size: 20px;
     cursor: pointer;
+    z-index: 5;
 }
-.cart__link:hover{
+.cart__link img{
+    width: 40px;
+    height: 40px;
+}
+.cart__link:hover, .order__link:hover{
     background-color: #E5383B;
     transition: 0.2s;
 }

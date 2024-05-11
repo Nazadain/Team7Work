@@ -8,7 +8,7 @@ let spliceIndex;
 let isCartEmpty = true;
 
 if(document.cookie.match('cart')) {
-  cartProducts = getCookie();
+  cartProducts = getCookie('cart');
 }
 
 if(cartProducts && cartProducts.length >= 1) {
@@ -217,7 +217,7 @@ function renderCart() {
     cardContainer = 
     `
     <p>Total: ${fullPrice}₽</p>
-    <a href="/order.php" class="order__button">Make order</a>
+    <a href="/checkout.php" class="order__button">Make order</a>
     `;
   }
   else {

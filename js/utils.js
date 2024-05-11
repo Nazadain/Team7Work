@@ -1,9 +1,9 @@
-function getCookie() {
+function getCookie(cookieItem) {
     let arr;
     let cartCookie = document.cookie.split(";");
     for(cookie of cartCookie){
       const parts = cookie.split("=");
-      if(parts[0] == ' cart' || parts[0] == 'cart') {
+      if(parts[0].trim() == cookieItem.trim()) {
         if(!arr) {
           arr = parts[1];
         }

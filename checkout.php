@@ -1,7 +1,7 @@
 <?php
 session_start();
 $title = "Checkout";
-$file = "order.css";
+$file = "checkout.css";
 require_once "include/header.php";
 ?>
 <div class="container">
@@ -29,4 +29,4 @@ require_once "include/header.php";
 <?php
 require_once "include/footer.php";
 ?>
-<script src="/js/order.js"></script>
+<script src="/js/checkout.js"></script>

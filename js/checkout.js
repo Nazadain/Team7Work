@@ -1,4 +1,4 @@
-let cart = getCookie();
+let cart = getCookie('cart');
 let totalPrice = 0;
 let cartContainer = document.querySelector(".products__container");
 

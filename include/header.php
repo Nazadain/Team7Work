@@ -15,14 +15,18 @@
     <header class="header">
         <div class="logo"><a href="/" class="nav__link">superFood</a></div>
         <nav class="nav">
-        <?php if($title == 'Super Food') 
+        <?php 
+        if($title == 'Super Food') 
             echo('<ul class="nav__list">
                 <li class="nav__item"><a href="#pizza__anchor" class="nav__link">pizza</a></li>
                 <li class="nav__item"><a href="#sushi__anchor" class="nav__link">sushi</a></li>
                 <li class="nav__item"><a href="#desserts__anchor" class="nav__link">desserts</a></li>
-            </ul>
-        </nav>
-        <a class="cart__link">cart</a>');
+            </ul>');
+        if($title == 'Super Food' || $title == 'Checkout') {
+            echo("<a href=\"orders.php\" class=\"order__link\">My&nbsporders</a>");
+        }
         ?>
+        </nav>
+        
     </header>
     

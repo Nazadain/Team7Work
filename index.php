@@ -8,8 +8,11 @@ mysqli_set_charset($link, "utf8");
 $pizzaArr = dbParse($link->query("SELECT `id`, `name`, `price`, `image`, `description` FROM `restaurant_menu_item` WHERE `type` = 'pizza'"));
 $sushiArr = dbParse($link->query("SELECT `id`, `name`, `price`, `image`, `description` FROM `restaurant_menu_item` WHERE `type` = 'sushi'"));
 $dessertArr = dbParse($link->query("SELECT `id`, `name`, `price`, `image`, `description` FROM `restaurant_menu_item` WHERE `type` = 'dessert'"));
-
 ?>
+<a class="cart__link">
+    <img src="img/cart.svg">
+</a>
+
 <div class="cart__container"></div>
 <div class="window__shadow"></div>
 <div class="container">
