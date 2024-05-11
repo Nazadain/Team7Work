@@ -7,7 +7,9 @@ let cartProducts;
 let spliceIndex;
 let isCartEmpty = true;
 
-cartProducts = getCookie();
+if(document.cookie.match('cart')) {
+  cartProducts = getCookie();
+}
 
 if(cartProducts && cartProducts.length >= 1) {
   isCartEmpty = false;
@@ -71,14 +73,12 @@ function cartQuantityClick(event) {
   }
   if(btn.classList == "plus") {
     cartPlus(cartItem);
-    setCartCookie()
   }
     
   else {
     cartMinus(cartItem);
     if(cartItem.quantity <= 0) {
       cartProducts.splice(spliceIndex, 1);
-      setCartCookie();
       setBtnState(cardId)
     }
     if(cartProducts.length <= 0) {

@@ -77,6 +77,7 @@ $dessertArr = dbParse($link->query("SELECT `id`, `name`, `price`, `image`, `desc
     </div>
 </div>
 <?php
+$link->close();
 require_once "include/footer.php";
 ?>
 <script src="/js/cart.js"></script>

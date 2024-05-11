@@ -11,7 +11,7 @@ for(key in cart) {
     let product = `
     <div class="product">
         <img src="${image}">
-        <h2>${title}</h2>
+        <h3>${title}</h3>
         <p>${quantity}</p>
         <p class="price">${price}₽</p>
     </div>
@@ -19,10 +19,11 @@ for(key in cart) {
     cartContainer.insertAdjacentHTML("afterbegin", product);
 }
 
-let total = `
-            <div class="form__footer">
+let total = 
+        `
+        <div class="form__footer">
             <p>Total: ${totalPrice}₽</p>
             <input type="submit" value="Make order" id="submit">
-            </div>
-    `;
+        </div>
+        `;
 document.querySelector('.form').insertAdjacentHTML("beforeend", total);

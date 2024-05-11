@@ -1,4 +1,5 @@
 <?php
+session_start();
 $title = "Checkout";
 $file = "order.css";
 require_once "include/header.php";
@@ -9,7 +10,7 @@ require_once "include/header.php";
     </header>
     
     <main class="products__container">
-    <form method="post" class="form">
+    <form action="handlers/createOrder.php" method="post" class="form">
             <div class="form__row">
                 <input type="text" name="firstname" placeholder="Name">
                 <input type="text" name="secondname" placeholder="Second name">
@@ -19,9 +20,9 @@ require_once "include/header.php";
                 <input type="text" name="address" placeholder="Address">
             </div>
             <div class="form__row">
-                <input type="time" min="<?=date("h:i")?>" name="phone" placeholder="Phone">
-                <input type="text" name="address" placeholder="Comment" id="comment">
+                <input type="text" name="comment" placeholder="Comment(not necessary)" id="comment">
             </div>
+            <div class="form__row alert"><?=$_SESSION['error']?></div>
         </form>
     </main>
 </div>

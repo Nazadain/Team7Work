@@ -7,6 +7,11 @@ function dbParse($database) {
     return $arr;
 }
 
+function redirect($url) {
+    header('Location: ' . $url);
+    exit();
+}
+
 function renderCard($id, $name, $price, $image, $description, $imgDir) {
     echo("
         <div class=\"card\">

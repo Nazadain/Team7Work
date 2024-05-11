@@ -1,7 +1,6 @@
 .container {
     width: 50%;
     margin: 0 auto;
-    box-shadow: 0 0 10px lightgrey;
 }
 .container header {
     display: flex;
@@ -19,15 +18,15 @@
     align-items: center;
     justify-content: space-around;
     box-shadow: 0 0 10px lightgrey;
-    padding: 10px 0;
+    padding: 8px 0;
     margin: 10px;
 }
 .product img {
-    width: 100px;
-    height: 100px;
+    width: 50px;
+    height: 50px;
 }
 .price {
-    font-size: 20px;
+    font-size: 18px;
 }
 .logo {
     position: static;
@@ -42,13 +41,13 @@
     justify-content: center;
 }
 .form {
-    width: 60%;
+    width: 80%;
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: column nowrap;
     justify-content: center;
 }
 .form input {
-    margin: 5px 0;
+    margin: 0 5px 5px 0;
     width: 150px;
     border: 1px solid black;
     padding: 10px;
@@ -58,11 +57,8 @@
     display: flex;
     justify-content: center;
 }
-.form__row:last-of-type input:first-child{
-    width: 50px;
-}
-.form__row:last-of-type input:last-child{
-    width: 100px;
+.form__row #comment {
+    width: 325px;
 }
 #submit {
     padding: 10px 15px;
@@ -84,4 +80,7 @@
     display: flex;
     flex-direction: column;
     align-self: center;
+}
+.alert {
+    color: #E5383B;
 }
