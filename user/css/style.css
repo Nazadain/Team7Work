@@ -6,6 +6,31 @@ body{
     margin: 0;
     padding: 0;
 }
+.client__container {
+    display: flex;
+    justify-content: center;
+    width: 30%;
+    margin: 100px auto;
+    text-align: center;
+}
+.client__menu {
+    display: flex;
+    flex-flow: column nowrap;
+    margin: 0 auto;
+    padding: 0;
+}
+.client__menu a {
+    padding: 10px 15px;
+    box-shadow: 0 0 10px lightgrey;
+    text-decoration: none;
+    color: #BA181B;
+    margin-bottom: 10px;
+    transition: 0.2s;
+}
+.client__menu a:hover {
+    box-shadow: 0 0 10px black;
+    transition: 0.2s;
+}
 .header{
     display: flex;
     flex-flow: row nowrap;
@@ -41,6 +66,10 @@ body{
     color: #fff;
     border-radius: 25px;
 }
+.order__link:hover {
+    background-color: #E5383B;
+    transition: 0.2s;
+}
 .cart__link{
     display: flex;
     justify-content: center;
@@ -62,8 +91,8 @@ body{
     width: 40px;
     height: 40px;
 }
-.cart__link:hover, .order__link:hover{
-    background-color: #E5383B;
+.cart__link:hover {
+    box-shadow: 0 0 10px black;
     transition: 0.2s;
 }
 .nav__item{
@@ -76,6 +105,7 @@ body{
     text-decoration: none;
     color: #161A1D;
     font-size: 18px;
+    transition: 0.2s;
 }
 .nav__link:hover{
     color: #BA181B;
@@ -110,6 +140,7 @@ body{
     color: #B1A7A6;
     text-decoration: none;
     line-height: 30px;
+    transition: 0.2s;
 }
 .footer a:hover {
     color: #fff;

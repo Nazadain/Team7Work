@@ -18,7 +18,7 @@ function renderCard($id, $name, $price, $image, $description, $imgDir) {
         <input type=\"hidden\" class=\"product__id\" value=\"$id\">
             <header>
                 <div class=\"card__image\">
-                <img src=\"img/$imgDir/$image\" class=\"img__item\">
+                <img src=\"../img/$imgDir/$image\" class=\"img__item\">
                 </div>
                 <h2 class=\"card__title\">$name</h2>
                 <p class=\"card__description\">$description</p>

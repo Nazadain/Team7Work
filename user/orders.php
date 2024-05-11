@@ -40,4 +40,4 @@ $order = dbParse($link->query("SELECT `status`, `date` FROM `order` WHERE `custo
 print_r($_COOKIE['customer']);
 require_once "include/footer.php";
 ?>
-<script src="/js/orders.js"></script>
+<script src="js/orders.js"></script>

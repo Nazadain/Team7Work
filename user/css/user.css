@@ -47,6 +47,7 @@
     cursor: pointer;
     font-family: "Exo 2", sans-serif;
     font-size: 16px;
+    transition: 0.25s;
 }
 .card__add:hover {
     background-color: #E5383B;
@@ -140,6 +141,7 @@
     text-decoration: none;
     margin-bottom: 65px;
     padding: 10px 20px;
+    transition: 0.2s;
 }
 .order__button:hover {
     background-color: #E5383B;

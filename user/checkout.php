@@ -29,4 +29,4 @@ require_once "include/header.php";
 <?php
 require_once "include/footer.php";
 ?>
-<script src="/js/checkout.js"></script>
+<script src="js/checkout.js"></script>

@@ -1,0 +1,49 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    margin: 0 auto;
+}
+.orders__container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+.order__item {
+    width: 300px;
+    padding: 10px;
+    box-shadow: 0 0 10px lightgrey;
+    margin-bottom: 15px;
+}
+.button__container {
+    display: flex;
+    flex-flow: row-reverse nowrap;
+    justify-content: space-between;
+}
+.button__container button {
+    border: 0;
+    cursor: pointer;
+    padding: 5px;
+}
+.accept {
+    background-color: lightgreen;
+}
+.decline {
+    background-color: #BA181B;
+}
+.created {
+    color: #B1A7A6;
+}
+.in__processing {
+    color: #fdca40;
+}
+.on__kitchen {
+    color: #ff7d00;
+}
+.in__transit {
+    color: #76c893;
+}
+.closed {
+    color: #111;
+}

@@ -43,4 +43,4 @@ foreach($cart as $key => $item) {
 $link->close();
 setcookie('customer', "$customerId", time() + 2678400 ,'/');
 setcookie('cart', NULL, time()-3600, '/');
-redirect('/orders.php');
+redirect('/user/orders.php');
