@@ -9,7 +9,7 @@ $link = mysqli_connect('localhost', 'root', '', 'delivery');
 mysqli_set_charset($link, "utf8");
 
 $customer = $_COOKIE['customer'];
-$order = dbParse($link->query("SELECT `status`, `date` FROM `order` WHERE `customer_id` = '$customer'"));
+$order = dbParse($link->query("SELECT `id`, `status`, `date` FROM `order` WHERE `customer_id` = '$customer'"));
 ?>
 <h1 class="header__text">My orders</h1>
 <div class="container">
@@ -17,9 +17,10 @@ $order = dbParse($link->query("SELECT `status`, `date` FROM `order` WHERE `custo
         <?php
         if(isset($_COOKIE["customer"])) {
             foreach( $order as $key => $value ) {
+                $orderId = $value["id"];
                 echo ("
                     <div class=\"order__item\">
-                        <h3>Order #$key</h3>
+                        <h3>Order #$orderId</h3>
                         <footer>
                             <p class=\"info\">Status: <span class=\"created\">{$value['status']}</span></p>
                             <p class=\"info\">Date: <span class=\"date\">{$value['date']}</span></p>
@@ -27,11 +28,7 @@ $order = dbParse($link->query("SELECT `status`, `date` FROM `order` WHERE `custo
                     </div>
                 ");
             }
-        }
-        else {
-            echo ("No Orders");
-        }
-            
+        }   
         ?>
     </main>
 </div>

@@ -3,7 +3,7 @@
     margin: 0 auto;
 }
 .main__image{
-    background-image: url(/img/slider/logo.jpg);
+    background-image: url(/user/img/slider/logo.jpg);
     background-size: cover;
     border-radius: 15px;
     height: 300px;

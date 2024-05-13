@@ -16,6 +16,7 @@
     height: 27px;
 }
 .orders__container {
+    width: 100%;
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
@@ -40,19 +41,4 @@
 }
 .order__item footer p:first-of-type {
     margin-right: 15px;
-}
-.created {
-    color: #B1A7A6;
-}
-.in__processing {
-    color: #fdca40;
-}
-.on__kitchen {
-    color: #ff7d00;
-}
-.in__transit {
-    color: #76c893;
-}
-.closed {
-    color: #111;
 }

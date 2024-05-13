@@ -1,32 +1,5 @@
-const orders = document.querySelectorAll('.order__item');
-
-for(let i=0; i < orders.length; i++) {
-    const orderItem = orders[i].querySelector('span');
-    if(orderItem.textContent == 'in processing') {
-        orderItem.classList.remove();
-        orderItem.classList.add('in__processing');
-    }
-    else if(orderItem.textContent == 'on kitchen') {
-        orderItem.classList.remove();
-        orderItem.classList.add('on__kitchen');
-    }
-    else if(orderItem.textContent == 'in transit') {
-        orderItem.classList.remove();
-        orderItem.classList.add('in__transit');
-    }
-    else if(orderItem.textContent == 'closed') {
-        orderItem.classList.remove();
-        orderItem.classList.add('closed');
-    }
+function btnHandleClick(event) {
+    btn = event.target.closest('.accept');
+    btn.style.display = 'hidden';
 }
-
-function orderState(event) {
-    const btn = event.target.closest('.accept');
-    if(!btn) return;
-    const order = btn.closest('.order__item');
-    order.querySelector('span').classList.remove();
-    order.querySelector('span').textContent = 'in processing';
-    order.querySelector('span').classList.add('in__processing');
-}
-
-document.addEventListener('click', orderState);
+addEventListener('click', btnHandleClick);

@@ -217,7 +217,7 @@ function renderCart() {
     cardContainer = 
     `
     <p>Total: ${fullPrice}₽</p>
-    <a href="/user/checkout.php" class="order__button">Make order</a>
+    <a href="checkout.php" class="order__button">Make order</a>
     `;
   }
   else {

@@ -149,3 +149,18 @@ body{
 .footer .info_block {
     margin: 0 5%;
 }
+.created {
+    color: #B1A7A6;
+}
+.in__progress {
+    color: #fdca40;
+}
+.on__kitchen {
+    color: #ff7d00;
+}
+.delivering {
+    color: #76c893;
+}
+.closed {
+    color: #111;
+}

@@ -1,6 +1,6 @@
 <?php
 $title = "Super Food";
-$file = "user.css";
+$file = "index.css";
 require_once "include/header.php";
 require_once "include/functions.php";
 $link = mysqli_connect('localhost', 'root', '', 'delivery');

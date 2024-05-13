@@ -13,7 +13,7 @@
 </head>
 <body>
     <header class="header">
-        <div class="logo"><a href="user.php" class="nav__link">superFood</a></div>
+        <div class="logo"><a href="/user/index.php" class="nav__link">superFood</a></div>
         <nav class="nav">
         <?php 
         if($title == 'Super Food') 
