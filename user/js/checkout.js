@@ -23,7 +23,7 @@ let total =
         `
         <div class="form__footer">
             <p>Total: ${totalPrice}₽</p>
-            <input type="submit" value="Make order" id="submit">
+            <input type="submit" value="Сделать заказ" id="submit">
         </div>
         `;
 document.querySelector('.form').insertAdjacentHTML("beforeend", total);

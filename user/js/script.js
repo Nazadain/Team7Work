@@ -12,19 +12,19 @@ window.addEventListener('scroll', () => {
 
 for(let i=0; i < orders.length; i++) {
     const orderItem = orders[i].querySelector('span');
-    if(orderItem.textContent == 'in progress') {
+    if(orderItem.textContent == 'в обработке') {
         orderItem.classList.remove();
         orderItem.classList.add('in__progress');
     }
-    else if(orderItem.textContent == 'on kitchen') {
+    else if(orderItem.textContent == 'на кухне') {
         orderItem.classList.remove();
         orderItem.classList.add('on__kitchen');
     }
-    else if(orderItem.textContent == 'delivering') {
+    else if(orderItem.textContent == 'в пути') {
         orderItem.classList.remove();
         orderItem.classList.add('delivering');
     }
-    else if(orderItem.textContent == 'closed') {
+    else if(orderItem.textContent == 'доставлен') {
         orderItem.classList.remove();
         orderItem.classList.add('closed');
     }

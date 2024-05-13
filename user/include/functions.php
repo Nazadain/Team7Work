@@ -25,7 +25,7 @@ function renderCard($id, $name, $price, $image, $description, $imgDir) {
             </header>
             <footer class=\"card__footer\">
                 <p class=\"card__price\">$price</p>
-                <button class=\"card__add\">Add&nbspto&nbspcart</button>
+                <button class=\"card__add\">В&nbspкорзину</button>
             </footer>
         </div>");
 }

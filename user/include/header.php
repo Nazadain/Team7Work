@@ -18,12 +18,12 @@
         <?php 
         if($title == 'Super Food') 
             echo('<ul class="nav__list">
-                <li class="nav__item"><a href="#pizza__anchor" class="nav__link">pizza</a></li>
-                <li class="nav__item"><a href="#sushi__anchor" class="nav__link">sushi</a></li>
-                <li class="nav__item"><a href="#desserts__anchor" class="nav__link">desserts</a></li>
+                <li class="nav__item"><a href="#pizza__anchor" class="nav__link">пицца</a></li>
+                <li class="nav__item"><a href="#sushi__anchor" class="nav__link">роллы</a></li>
+                <li class="nav__item"><a href="#desserts__anchor" class="nav__link">десерты</a></li>
             </ul>');
         if($title == 'Super Food' || $title == 'Checkout') {
-            echo("<a href=\"orders.php\" class=\"order__link\">My&nbsporders</a>");
+            echo("<a href=\"orders.php\" class=\"order__link\">Мои&nbspзаказы</a>");
         }
         ?>
         </nav>

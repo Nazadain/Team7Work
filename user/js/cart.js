@@ -47,7 +47,7 @@ function cartAddClick(event) {
   let cardDescription = card.querySelector('.card__description').innerText;
   let cardPrice = card.querySelector('.card__price').innerText;
   card.querySelector('.card__add').classList.add('in__cart');
-  card.querySelector('.card__add').innerText = "In cart";
+  card.querySelector('.card__add').innerText = "В корзине";
   if(isCartEmpty) {
     cartProducts = cartSet(cardId, cardTitle, cardImage, cardDescription, cardPrice);
     isCartEmpty = false;
@@ -172,7 +172,7 @@ function setBtnState(cardId) {
     if(productId == cardId) {
       addBtn = product[i].querySelector('.card__add');
       addBtn.classList.remove('in__cart');
-      addBtn.innerText = "Add to cart";
+      addBtn.innerText = "В корзину";
       break;
     }
   }
@@ -182,7 +182,7 @@ function renderCart() {
   cartContainer.innerHTML = '';
   if(isCartEmpty) {
     const emptyCart = `
-    <h2>Your cart is empty</h2>
+    <h2>Корзина пуста</h2>
     `;
     cartContainer.insertAdjacentHTML('beforeend', emptyCart);
     return;
@@ -217,7 +217,7 @@ function renderCart() {
     cardContainer = 
     `
     <p>Total: ${fullPrice}₽</p>
-    <a href="checkout.php" class="order__button">Make order</a>
+    <a href="checkout.php" class="order__button">Оформить заказ</a>
     `;
   }
   else {

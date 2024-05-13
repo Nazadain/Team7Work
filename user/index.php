@@ -19,7 +19,7 @@ $dessertArr = dbParse($link->query("SELECT `id`, `name`, `price`, `image`, `desc
     <div class="main__image"></div>
     <a name="pizza__anchor"></a>
     <div class="product__container pizza__container">
-        <h1>Pizza</h1>
+        <h1>Пицца</h1>
         <div class="cards">
             <?php
             $imgDir = "pizza";
@@ -40,7 +40,7 @@ $dessertArr = dbParse($link->query("SELECT `id`, `name`, `price`, `image`, `desc
     </div>
     <a name="sushi__anchor"></a>
     <div class="product__container sushi__container">
-        <h1>Sushi</h1>
+        <h1>Роллы</h1>
         <div class="cards">
         <?php
         $imgDir = "sushi";
@@ -60,7 +60,7 @@ $dessertArr = dbParse($link->query("SELECT `id`, `name`, `price`, `image`, `desc
     </div>
     <a name="desserts__anchor"></a>
     <div class="product__container desserts__container">
-        <h1>Desserts</h1>
+        <h1>Десерты</h1>
         <div class="cards">
         <?php
         $imgDir = "desserts";
