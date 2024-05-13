@@ -45,7 +45,7 @@ $products = dbParse($link->query("SELECT * FROM `restaurant_menu_item`"));
             <option value="sushi">sushi</option>
             <option value="dessert">dessert</option>
         </select>
-        <input type="file" name="file" placeholder="description" id="desc">
+        <input type="file" name="file" id="desc">
         <input type="submit" class="add" value="Add a product">
     </form>
 </div>
