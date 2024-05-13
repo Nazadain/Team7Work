@@ -29,7 +29,7 @@ $customerId = dbParse($link->query("SELECT `id` FROM `customer` WHERE `phone` = 
 $customerId = (int)$customerId[0]['id'];
 
 $date = date('h:i d.m.20y');
-$link->query("INSERT INTO `order` (`customer_id`, `status`, `date`) VALUES ('$customerId', 'created', '$date')");
+$link->query("INSERT INTO `order` (`customer_id`, `status`, `date`) VALUES ('$customerId', 'создан', '$date')");
 $orderId = dbParse($link->query("SELECT `id` FROM `order` ORDER BY `id` DESC LIMIT 0, 1 "));
 $orderId = (int)$orderId[0]['id'];
 
