@@ -41,15 +41,18 @@ $order = dbParse($link->query("SELECT * FROM `order`"));
                         <p class=\"info\">Status: <span class=\"created\">{$value['status']}</span></p>
                         <p class=\"info\">Date: <span class=\"date\">{$value['date']}</span></p>
                         <p class=\"info\">Customer name: <span class=\"date\">$customerName</span></p>
-                        <form action=\"handlers/accept-order.php\" method=\"POST\" class=\"button__container\">
-                            <input type=\"hidden\" value=\"$orderId\" name=\"id\">
-                            <button class=\"decline\">Decline</button>
-                            <button type\"submit\" class=\"accept\">Accept</button>
-                        </form>
-                    </footer>
-                </div>
             ");
-        }
+            if($value['status'] == 'создан') {
+                echo ("
+                <form action=\"handlers/accept-order.php\" method=\"POST\" class=\"button__container\">
+                <input type=\"hidden\" value=\"$orderId\" name=\"id\">
+                <button type\"submit\" class=\"accept\">Accept</button>
+                </form>
+            ");}      
+            echo ("
+            </footer>
+            </div>
+            ");}
         ?>
     </main>
 </div>
