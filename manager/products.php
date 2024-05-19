@@ -12,7 +12,7 @@ $customer = $_COOKIE['customer'];
 $products = dbParse($link->query("SELECT * FROM `restaurant_menu_item`"));
 ?>
 <div class="container">
-    <button class="plus__item">Add product</button>
+    <button class="plus__item">Добавить товар</button>
     <h1>Products</h1>
     <main class="products__container">
     <?php
@@ -24,10 +24,10 @@ $products = dbParse($link->query("SELECT * FROM `restaurant_menu_item`"));
             <button type=\"submit\" class=\"del\">X</button>
             </form>
             <h3>{$product['name']}</h3>
-            <p class=\"info\">Price: {$product['price']}</p>
-            <p class=\"info\">Type: {$product['type']}</p>
-            <p class=\"info\">Image: {$product['image']}</p>
-            <p class=\"info\">Desc: {$product['description']}</p>
+            <p class=\"info\">Цена: {$product['price']}</p>
+            <p class=\"info\">Тип: {$product['type']}</p>
+            <p class=\"info\">Изображение: {$product['image']}</p>
+            <p class=\"info\">Описание: {$product['description']}</p>
         </div>
         ");
     }
@@ -35,18 +35,18 @@ $products = dbParse($link->query("SELECT * FROM `restaurant_menu_item`"));
     </main>
     <form class="add__product" action="handlers/add-product.php" method="POST" enctype="multipart/form-data">
         <div class="close">X</div>
-        <h2>Fill a form</h2>
+        <h2>Заполните форму</h2>
         <input type="text" name="name" placeholder="name">
         <input type="text" name="price" placeholder="price">
         <input type="text" name="desc" placeholder="description" id="desc">
-        <p>type:</p>
+        <p>тип:</p>
         <select name="type">
-            <option value="pizza">pizza</option>
-            <option value="sushi">sushi</option>
-            <option value="dessert">dessert</option>
+            <option value="pizza">пицца</option>
+            <option value="sushi">роллы</option>
+            <option value="dessert">дессерт</option>
         </select>
         <input type="file" name="file" id="desc">
-        <input type="submit" class="add" value="Add a product">
+        <input type="submit" class="add" value="Добавить товар">
     </form>
 </div>
 

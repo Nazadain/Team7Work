@@ -12,7 +12,7 @@ $customer = $_COOKIE['customer'];
 $order = dbParse($link->query("SELECT * FROM `order`"));
 ?>
 <div class="container">
-    <h1>Orders</h1>
+    <h1>Заказы</h1>
     <header class="header">
         <nav class="nav mb">
             <ul>
@@ -30,17 +30,18 @@ $order = dbParse($link->query("SELECT * FROM `order`"));
             exit();
         } 
         foreach( $order as $key => $value ) {
-            $customerId = $value['customer_id'];
-            $orderId = $value['id'];
-            $customerName = dbParse($link->query("SELECT `first_name` FROM `customer` WHERE `id` = '$customerId'"));
-            $customerName = $customerName[0]["first_name"];
+            $customerName = dbParse($link->query("SELECT `first_name` FROM `customer` WHERE `id` = '{$value['customer_id']}'"))[0]['first_name'];
+            if($value['courier_id'] != null) {
+                $courierName = dbParse($link->query("SELECT `first_name` FROM `courier` WHERE `id` = '{$value['courier_id']}'"))[0]['first_name'];
+            }
             echo ("
                 <div class=\"order__item\">
-                    <h3>Order&nbsp#$orderId</h3>
+                    <h3>Order&nbsp#{$value['id']}</h3>
                     <footer>
                         <p class=\"info\">Status: <span class=\"created\">{$value['status']}</span></p>
                         <p class=\"info\">Date: <span class=\"date\">{$value['date']}</span></p>
                         <p class=\"info\">Customer name: <span class=\"date\">$customerName</span></p>
+                        <p class=\"info\">Courier name: <span class=\"date\">{$value['']}</span></p>
             ");
             if($value['status'] == 'создан') {
                 echo ("

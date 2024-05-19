@@ -58,12 +58,14 @@ try {
 
     echo 'File is uploaded successfully.';
 
-} catch (RuntimeException $e) {
+} catch (RuntimeException $error) {
 
-    echo $e->getMessage();
+    echo $error->getMessage();
 
 }
 
 $link->query("INSERT INTO `restaurant_menu_item` (`name`, `price`, `type`, `image`, `description`, `restaurant_id`) VALUES ('$productName', '$productPrice', '$productType', '$productImage', '$productDesc', 1)");
+
+$link->close();
 
 redirect("/manager/products.php");

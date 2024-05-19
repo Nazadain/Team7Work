@@ -11,9 +11,8 @@
     <header class="header">
         <nav class="nav">
             <ul>
-                <a href="orders.php">orders</a>
-                <a href="products.php">products</a>
-                <a href="#">contacts</a>
+                <a href="orders.php">заказы</a>
+                <a href="products.php">товары</a>
             </ul>
         </nav>
     </header>
