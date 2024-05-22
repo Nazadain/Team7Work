@@ -38,10 +38,10 @@ $order = dbParse($link->query("SELECT * FROM `order`"));
                 <div class=\"order__item\">
                     <h3>Order&nbsp#{$value['id']}</h3>
                     <footer>
-                        <p class=\"info\">Status: <span class=\"created\">{$value['status']}</span></p>
-                        <p class=\"info\">Date: <span class=\"date\">{$value['date']}</span></p>
-                        <p class=\"info\">Customer name: <span class=\"date\">$customerName</span></p>
-                        <p class=\"info\">Courier name: <span class=\"date\">{$value['']}</span></p>
+                        <p class=\"info\">Status:<br> <span class=\"created\">{$value['status']}</span></p>
+                        <p class=\"info\">Date:<br> <span class=\"date\">{$value['date']}</span></p>
+                        <p class=\"info\">Customer name:<br> <span class=\"date\">$customerName</span></p>
+                        <p class=\"info\">Comment:<br> <span class=\"date\">{$value['comment']}</span></p>
             ");
             if($value['status'] == 'создан') {
                 echo ("

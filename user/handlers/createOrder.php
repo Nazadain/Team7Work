@@ -33,6 +33,11 @@ $link->query("INSERT INTO `order` (`customer_id`, `status`, `date`) VALUES ('$cu
 $orderId = dbParse($link->query("SELECT `id` FROM `order` ORDER BY `id` DESC LIMIT 0, 1 "));
 $orderId = (int)$orderId[0]['id'];
 
+if($comment)
+{
+    $link->query("UPDATE `order` SET `comment` = '$comment' WHERE `id` = '$orderId'");
+}
+
 foreach($cart as $key => $item) {
     $itemId = (int)$item['id'];
     $itemPrice = (int)$item['price'];
