@@ -22,7 +22,6 @@ $dessertArr = dbParse($link->query("SELECT `id`, `name`, `price`, `image`, `desc
         <h1>Пицца</h1>
         <div class="cards">
             <?php
-            $imgDir = "pizza";
             for($i = 0; $i < count($pizzaArr); $i++) {
                 $id = $pizzaArr[$i]["id"];
                 $name = $pizzaArr[$i]["name"];
@@ -32,7 +31,7 @@ $dessertArr = dbParse($link->query("SELECT `id`, `name`, `price`, `image`, `desc
                 if($image == '') {
                     $image = 'pizza.svg';
                 }
-                renderCard($id, $name, $price, $image, $description, $imgDir);
+                renderCard($id, $name, $price, $image, $description);
             }
             ?>
         </div>
@@ -43,7 +42,6 @@ $dessertArr = dbParse($link->query("SELECT `id`, `name`, `price`, `image`, `desc
         <h1>Роллы</h1>
         <div class="cards">
         <?php
-        $imgDir = "sushi";
         for($i = 0; $i < count($sushiArr); $i++) {
             $id = $sushiArr[$i]["id"];
             $name = $sushiArr[$i]["name"];
@@ -53,7 +51,7 @@ $dessertArr = dbParse($link->query("SELECT `id`, `name`, `price`, `image`, `desc
             if($image == '') {
                 $image = 'sushi.svg';
             }
-            renderCard($id, $name, $price, $image, $description, $imgDir);
+            renderCard($id, $name, $price, $image, $description);
         }
         ?>
         </div>
@@ -63,7 +61,6 @@ $dessertArr = dbParse($link->query("SELECT `id`, `name`, `price`, `image`, `desc
         <h1>Десерты</h1>
         <div class="cards">
         <?php
-        $imgDir = "desserts";
         for($i = 0; $i < count($dessertArr); $i++) {
             $id = $dessertArr[$i]["id"];
             $name = $dessertArr[$i]["name"];
@@ -73,7 +70,7 @@ $dessertArr = dbParse($link->query("SELECT `id`, `name`, `price`, `image`, `desc
             if($image == '') {
                 $image = 'dessert.svg';
             }
-            renderCard($id, $name, $price, $image, $description, $imgDir);
+            renderCard($id, $name, $price, $image, $description);
         }
         ?>
         </div>

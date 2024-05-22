@@ -10,6 +10,7 @@ mysqli_set_charset($link, "utf8");
 
 $customer = $_COOKIE['customer'];
 $order = dbParse($link->query("SELECT `id`, `status`, `date` FROM `order` WHERE `customer_id` = '$customer'"));
+
 ?>
 <h1 class="header__text">Мои заказы</h1>
 <div class="container">
@@ -34,7 +35,6 @@ $order = dbParse($link->query("SELECT `id`, `status`, `date` FROM `order` WHERE 
 </div>
 
 <?php 
-print_r($_COOKIE['customer']);
 require_once "include/footer.php";
 ?>
 <script src="js/orders.js"></script>

@@ -60,10 +60,13 @@ function cartAddClick(event) {
 //обработчик нажатия на кнопки "+" и "-" у товара в корзине
 function cartQuantityClick(event) {
   const btn = event.target.closest(".minus, .plus");
+
   if(!btn) return;
+
   const card = btn.closest('.cart__product');
   const cardId = card.dataset.productId;
   let cartItem;
+
   for(let i = 0; i < cartProducts.length; i++) {
     if(cardId == cartProducts[i].id) {
       cartItem = cartProducts[i];
@@ -71,11 +74,10 @@ function cartQuantityClick(event) {
       break;
     }
   }
+
   if(btn.classList == "plus") {
     cartPlus(cartItem);
-  }
-    
-  else {
+  }else {
     cartMinus(cartItem);
     if(cartItem.quantity <= 0) {
       cartProducts.splice(spliceIndex, 1);
@@ -85,6 +87,7 @@ function cartQuantityClick(event) {
       isCartEmpty = true;
     }
   }
+
   setCartCookie();
   renderCart()
 }
@@ -157,20 +160,13 @@ document.addEventListener('keydown', (e) => {
 	}
 });
 
-function getBtnState() {
-  let product = document.querySelectorAll('.card');
-
-}
-
 //изменения состояния кнопки "Add in cart"
 function setBtnState(cardId) {
   let product = document.querySelectorAll('.card');
-  let productId;
-  let addBtn;
   for(let i = 0; i < product.length; i++) {
-    productId = product[i].querySelector(".product__id").value;
+    const productId = product[i].querySelector(".product__id").value;
     if(productId == cardId) {
-      addBtn = product[i].querySelector('.card__add');
+      const addBtn = product[i].querySelector('.card__add');
       addBtn.classList.remove('in__cart');
       addBtn.innerText = "В корзину";
       break;

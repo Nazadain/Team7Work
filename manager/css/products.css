@@ -16,6 +16,16 @@
     position: absolute;
     top: 10px;
     right: 10px;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+.edit {
+    position: absolute;
+    top: 10px;
+    right: 45px;
+    width: 25px;
+    height: 25px;
     cursor: pointer;
 }
 .plus__item {
@@ -34,7 +44,7 @@
     background-color: #E5383B;
     transition: 0.25s;
 }
-.add__product {
+.product__form{
     display: none;
     position: relative;
     flex-direction: column;
@@ -47,13 +57,13 @@
     box-shadow: 0 0 10px lightgrey;
     text-align: center;
 }
-.add__product p {
+.product__form p {
     line-height: 0;
 }
-.add__product input {
+.product__form input {
     margin: 10px;
 }
-.close {
+.product__form .close {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -66,7 +76,7 @@
     color: white;
     cursor: pointer;
 }
-.close:hover {
+.product__form .close:hover {
     background-color: #E5383B;
     transition: 0.25s;
 }

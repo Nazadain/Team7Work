@@ -46,7 +46,7 @@ $order = dbParse($link->query("SELECT * FROM `order`"));
             if($value['status'] == 'создан') {
                 echo ("
                 <form action=\"handlers/accept-order.php\" method=\"POST\" class=\"button__container\">
-                <input type=\"hidden\" value=\"$orderId\" name=\"id\">
+                <input type=\"hidden\" value=\"{$value['id']}\" name=\"id\">
                 <button type\"submit\" class=\"accept\">Accept</button>
                 </form>
             ");}      
@@ -59,6 +59,7 @@ $order = dbParse($link->query("SELECT * FROM `order`"));
 </div>
 
 <?php 
+$link->close();
 require_once "include/footer.php";
 ?>
 <script src="js/orders.js"></script>

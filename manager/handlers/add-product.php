@@ -47,12 +47,7 @@ try {
         throw new RuntimeException('Invalid file format.');
     }
 
-    if($productType == 'pizza')
-        $path = __DIR__ . '/../../user/img/pizza/' . $_FILES['file']['name'];
-    else if($productType == 'sushi')
-        $path = __DIR__ . '/../../user/img/sushi/' . $_FILES['file']['name'];
-    else if($productType == 'dessert')
-        $path = __DIR__ . '/../../user/img/desserts/' . $_FILES['file']['name'];
+    $path = __DIR__ . '/../../user/img/' . $_FILES['file']['name'];
 
     move_uploaded_file( $_FILES['file']['tmp_name'], $path) or die( "Could not copy file!");
 

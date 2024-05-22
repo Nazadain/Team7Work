@@ -1,0 +1,28 @@
+html {
+    scroll-behavior: smooth;
+}
+body {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+.header {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+}
+.nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.nav ul a {
+    color: #111;
+    text-decoration: none;
+    font-size: 20px;
+    transition: 0.25s;
+}
+.nav ul a:hover {
+    color: #BA181B;
+    transition: 0.25s;
+}
