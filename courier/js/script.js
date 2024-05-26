@@ -1,14 +1,15 @@
 const ordersContainer = document.querySelector('.container');
 
 let dbOrdersData = dbData;
-console.log(dbOrdersData);
+
+const courierId = getCookie('id');
 
 function getOrdersData() {
     let orderData = [];
 
     for(order of dbOrdersData['order'])
     {
-        if(order['status'] !== "в обработке") continue;
+        if(order['status'] !== "на кухне") continue;
         
         const orderItems = getOrderItems(order);
         const menuItems = getMenuItemsName(orderItems);
@@ -21,7 +22,7 @@ function getOrdersData() {
 
         orderData = [{
             'id': order['id'],
-            'status': order['status'],
+            'courierId': courierId,
             'namesArr': menuItems,
             'quantityArr': orderItemsQuantity
         }];
@@ -66,7 +67,7 @@ function getMenuItemsName(orderItem) {
 
 function renderOrder(order) {
     order.forEach(element => {
-        const {id, status, namesArr, quantityArr} = element;
+        const {id, courierId, namesArr, quantityArr} = element;
         
         const orderItem = 
 
@@ -74,10 +75,10 @@ function renderOrder(order) {
         <div class="order">
             <form action="current-order.php" method = "GET">
             <input type="hidden" name="id" value="${id}">
+            <input type="hidden" name="courierId" value="${courierId}">
             <button type="submit" class="submit__btn">Принять</button>
             </form>
             <h2>Заказ №${id} </h2>
-            <p>Статус: <span class="status">${status}<span></p>
             
             <div class="products" id="order_${id}">
             <h3>Блюда:</h3>

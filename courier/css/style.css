@@ -6,31 +6,24 @@ body {
     margin: 0;
     padding: 0;
 }
-.header {
-    display: flex;
-    justify-content: center;
-    padding: 10px 0;
-}
-.nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-.nav ul a {
-    color: #111;
-    text-decoration: none;
-    font-size: 20px;
-    transition: 0.25s;
-}
-.nav ul a:hover {
-    color: #BA181B;
-    transition: 0.25s;
-}
 .container {
     display: flex;
     flex-direction: column-reverse;
-    width: 50%;
+    width: 70%;
     margin: 0 auto;
+    margin-top: 100px;
+}
+.form__container{
+    display: flex;
+    width: 30%;
+    align-items: center;
+}
+.form__container form {
+    display: flex;
+    flex-direction: column;
+}
+.form__container form input {
+    margin-bottom: 15px;
 }
 .order {
     position: relative;

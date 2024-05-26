@@ -8,4 +8,4 @@ $link->query("UPDATE `order` SET `status` = 'в обработке' WHERE `id` =
 
 $link->close();
 
-redirect("/manager/orders.php");
+redirect("/manager/index.php");

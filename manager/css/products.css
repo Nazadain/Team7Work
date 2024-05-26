@@ -60,6 +60,9 @@
 .product__form p {
     line-height: 0;
 }
+.product__link {
+    color: #BA181B;
+}
 .product__form input {
     margin: 10px;
 }

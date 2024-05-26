@@ -17,7 +17,6 @@ if(cartProducts && cartProducts.length >= 1) {
 
 renderCart()
 
-//обработчик нажатия на кнопку "cart"
 function cartOpenClick(event) {
     let insideMenu = event.composedPath().includes(cartContainer);
     let insideButton = event.composedPath().includes(cartButton);
@@ -35,7 +34,6 @@ function cartOpenClick(event) {
     }
 }
 
-//обработчик нажатия по кнопке "В корзину"
 function cartAddClick(event) {
   const targetButton = event.target.closest('.card__add');
   if(!targetButton) 
@@ -57,7 +55,6 @@ function cartAddClick(event) {
   renderCart()
 }
 
-//обработчик нажатия на кнопки "+" и "-" у товара в корзине
 function cartQuantityClick(event) {
   const btn = event.target.closest(".minus, .plus");
 
@@ -92,7 +89,6 @@ function cartQuantityClick(event) {
   renderCart()
 }
 
-//запись данных о товарах в корзине в куки
 function setCartCookie() {
   document.cookie = "cart=" + JSON.stringify(cartProducts);
 }
@@ -121,7 +117,6 @@ function cartAddProduct(id, title, image, desc, price) {
   renderCart()
 }
 
-//обработчик нажатия по кнопке "Удалить из корзины"
 function cartDelClick(event) {
   const btn = event.target.closest('.cart__del-card');
   if(!btn) return;
@@ -160,7 +155,6 @@ document.addEventListener('keydown', (e) => {
 	}
 });
 
-//изменения состояния кнопки "Add in cart"
 function setBtnState(cardId) {
   let product = document.querySelectorAll('.card');
   for(let i = 0; i < product.length; i++) {
@@ -176,6 +170,7 @@ function setBtnState(cardId) {
 
 function renderCart() {
   cartContainer.innerHTML = '';
+  
   if(isCartEmpty) {
     const emptyCart = `
     <h2>Корзина пуста</h2>

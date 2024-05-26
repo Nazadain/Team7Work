@@ -9,9 +9,6 @@
     display: flex;
     flex-flow: column-reverse nowrap;
 }
-.mb {
-    margin-bottom: 20px;
-}
 .order__item {
     display: flex;
     position: relative;
@@ -50,6 +47,9 @@
 }
 .decline {
     background-color: #BA181B;
+}
+.order__link{
+    color: #BA181B;
 }
 .created {
     color: #B1A7A6;

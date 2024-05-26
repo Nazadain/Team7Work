@@ -1,6 +1,6 @@
 <?php
 session_start();
-$title = "Checkout";
+$title = "Товары";
 $style = "products.css";
 require_once "include/header.php";
 require_once "include/functions.php";

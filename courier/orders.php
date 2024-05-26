@@ -18,6 +18,8 @@ $ordersData = ['order' => $order, 'orderItem' => $orderItem, 'menuItem' => $menu
     let dbData = <?=json_encode($ordersData)?>;
 </script>
 
+<script src="js/utils.js"></script>
+<script src="js/script.js"></script>
 <?php
 require_once 'include/footer.php';
 ?>

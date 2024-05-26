@@ -8,12 +8,4 @@
     <title><?=$title?></title>
 </head>
 <body>
-    <header class="header">
-        <nav class="nav">
-            <ul>
-                <a href="index.php" class="order__link">заказы</a>
-                <a href="products.php" class="product__link">товары</a>
-            </ul>
-        </nav>
-    </header>
 
